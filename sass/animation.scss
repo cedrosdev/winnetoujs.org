@@ -18,27 +18,30 @@ body {
   align-items: center;
 }
 
+$base: 1000px;
+
 .logo {
-  width: 500px;
-  height: 300px;
+  width: $base;
+  height: calc(0.6 * $base);
   display: flex;
+  overflow: hidden;
 
   border: 1px solid white;
-  padding-left: 125px;
-  padding-top: 35px;
+  padding-left: calc(0.25 * $base);
+  padding-top: calc(0.07 * $base);
 }
 
 .pillar {
-  width: 100px;
-  height: 300px;
+  width: calc(0.2 * $base);
+  height: calc(0.6 * $base);
   display: flex;
   flex-direction: column;
   transition: all 2s;
 
   .box {
-    width: 100px;
-    height: 100px;
-    margin-bottom: -1px;
+    width: calc(0.2 * $base);
+    height: calc(0.2 * $base);
+    margin-bottom: calc(-0.002 * $base);
   }
 }
 
@@ -82,5 +85,5 @@ body {
 
 .animation {
   transform: rotate(-45deg);
-  margin-right: 41px;
+  margin-right: calc(0.082 * $base);
 }
