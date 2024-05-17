@@ -13,67 +13,74 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.logo {
+  width: 500px;
+  height: 300px;
+  display: flex;
 
-  .pillar {
+  border: 1px solid white;
+  padding-left: 125px;
+  padding-top: 35px;
+}
+
+.pillar {
+  width: 100px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: all 2s;
+
+  .box {
     width: 100px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    transition: all 2s;
-
-    .box {
-      width: 100px;
-      height: 100px;
-      margin-bottom: -1px;
-    }
+    height: 100px;
+    margin-bottom: -1px;
   }
+}
 
-  .pillar_1 {
-    .box_1 {
-      background-color: #8f4598;
-    }
-    .box_2 {
-      background-color: #8f4598;
-    }
-    .box_3 {
-      background-color: transparent;
-    }
+.pillar_1 {
+  .box_1 {
+    background-color: #8f4598;
   }
+  .box_2 {
+    background-color: #8f4598;
+  }
+  .box_3 {
+    background-color: transparent;
+  }
+}
 
-  .pillar_2 {
-    visibility: hidden;
-    .box_1 {
-      background-color: #6a2673;
-    }
-    .box_2 {
-      background-color: #6a2673;
-    }
-    .box_3 {
-      background-color: transparent;
-    }
+.pillar_2 {
+  visibility: hidden;
+  .box_1 {
+    background-color: #6a2673;
   }
+  .box_2 {
+    background-color: #6a2673;
+  }
+  .box_3 {
+    background-color: transparent;
+  }
+}
 
-  .pillar_3 {
-    visibility: hidden;
-    .box_1 {
-      background-color: #cc94d2;
-    }
-    .box_2 {
-      background-color: transparent;
-    }
-    .box_3 {
-      background-color: transparent;
-    }
+.pillar_3 {
+  visibility: hidden;
+  .box_1 {
+    background-color: #cc94d2;
   }
+  .box_2 {
+    background-color: transparent;
+  }
+  .box_3 {
+    background-color: transparent;
+  }
+}
 
-  .animation {
-    transform: rotate(-45deg);
-    margin-right: 41px;
-  }
+.animation {
+  transform: rotate(-45deg);
+  margin-right: 41px;
 }
