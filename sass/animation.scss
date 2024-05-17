@@ -1,0 +1,79 @@
+@import "../node_modules/win-animate/src/animateCore.scss";
+@import "../node_modules/win-animate/src/zooming_entrances/zoomIn.scss";
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.wow {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pillar {
+    width: 100px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: all 2s;
+
+    .box {
+      width: 100px;
+      height: 100px;
+      margin-bottom: -1px;
+    }
+  }
+
+  .pillar_1 {
+    .box_1 {
+      background-color: #8f4598;
+    }
+    .box_2 {
+      background-color: #8f4598;
+    }
+    .box_3 {
+      background-color: transparent;
+    }
+  }
+
+  .pillar_2 {
+    visibility: hidden;
+    .box_1 {
+      background-color: #6a2673;
+    }
+    .box_2 {
+      background-color: #6a2673;
+    }
+    .box_3 {
+      background-color: transparent;
+    }
+  }
+
+  .pillar_3 {
+    visibility: hidden;
+    .box_1 {
+      background-color: #cc94d2;
+    }
+    .box_2 {
+      background-color: transparent;
+    }
+    .box_3 {
+      background-color: transparent;
+    }
+  }
+
+  .animation {
+    transform: rotate(-45deg);
+    margin-right: 41px;
+  }
+}
