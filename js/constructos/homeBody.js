@@ -8,12 +8,13 @@ import {
 
 
 /**@private */
-class logo_ extends Constructos {
+class splash_ extends Constructos {
 
   // ========================================
   /**
    * 
-   * @param {object} [elements]
+   * @param {object} elements
+   * @param {any} elements.text 
    * @param {object} [options]
    * @param {any=} options.identifier
    */
@@ -27,23 +28,7 @@ class logo_ extends Constructos {
     let obj = {
       code(elements_) {
         return `
-  <div class="logo" id="logo-win-${identifier}">
-    <div class="pillar pillar_1" id="pillar_1-win-${identifier}">
-      <div class="box box_1"></div>
-      <div class="box box_2"></div>
-      <div class="box box_3"></div>
-    </div>
-    <div class="pillar pillar_2" id="pillar_2-win-${identifier}">
-      <div class="box box_1"></div>
-      <div class="box box_2"></div>
-      <div class="box box_3"></div>
-    </div>
-    <div class="pillar pillar_3" id="pillar_3-win-${identifier}">
-      <div class="box box_1"></div>
-      <div class="box box_2"></div>
-      <div class="box box_3"></div>
-    </div>
-  </div>
+  <div id="splash-win-${identifier}" class="splash"><span>${(elements_?.text)}</span></div>
 `
       },
 
@@ -61,10 +46,7 @@ class logo_ extends Constructos {
         this.create(component, output, options);
         return {
           ids: {
-            logo: `logo-win-${identifier}`,
-            pillar_1: `pillar_1-win-${identifier}`,
-            pillar_2: `pillar_2-win-${identifier}`,
-            pillar_3: `pillar_3-win-${identifier}`,
+            splash: `splash-win-${identifier}`,
           },
           code: obj.code(elementsToString),
         }
@@ -72,9 +54,9 @@ class logo_ extends Constructos {
       constructoString: () => obj.code(elementsToString)
     }
     component = obj.code(elementsToString);
-    this._saveUsingMutable(`logo-win-${identifier}`, elements, options, logo_);
+    this._saveUsingMutable(`splash-win-${identifier}`, elements, options, splash_);
     return obj;
   }
 }
 
-export const logo = new logo_().constructo;
+export const splash = new splash_().constructo;

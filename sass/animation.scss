@@ -1,26 +1,4 @@
-@import "../node_modules/win-animate/src/animateCore.scss";
-@import "../node_modules/win-animate/src/zooming_entrances/zoomIn.scss";
-* {
-  box-sizing: border-box;
-}
-html,
-body {
-  margin: 0px;
-  padding: 0px;
-}
-
-.wow {
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-:root {
-  --base: 800px;
-}
+@use "./vars.scss" as *;
 
 @media (max-width: 600px) {
   :root {
@@ -40,27 +18,16 @@ body {
   }
 }
 
-$base: var(--base);
-
 .logo {
   width: $base;
   height: calc(0.6 * $base);
   display: flex;
   overflow: hidden;
-  border: 1px solid white;
+  // border: 1px solid white;
+
   padding-left: calc(0.25 * $base);
   padding-top: calc(0.07 * $base);
-}
-
-.logo {
-  width: $base;
-  height: calc(0.6 * $base);
-  display: flex;
-  overflow: hidden;
-
-  border: 1px solid white;
-  padding-left: calc(0.25 * $base);
-  padding-top: calc(0.07 * $base);
+  margin-right: calc(-0.13 * $base);
 }
 
 .pillar {
@@ -73,13 +40,13 @@ $base: var(--base);
   .box {
     width: calc(0.2 * $base);
     height: calc(0.2 * $base);
-    margin-bottom: calc(-0.002 * $base);
   }
 }
 
 .pillar_1 {
   .box_1 {
     background-color: #8f4598;
+    margin-bottom: calc(-0.003 * $base);
   }
   .box_2 {
     background-color: #8f4598;
@@ -93,6 +60,7 @@ $base: var(--base);
   visibility: hidden;
   .box_1 {
     background-color: #6a2673;
+    margin-bottom: calc(-0.003 * $base);
   }
   .box_2 {
     background-color: #6a2673;

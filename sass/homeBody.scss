@@ -1,0 +1,29 @@
+@use "./vars.scss" as *;
+.splash {
+  width: 100%;
+  padding: 20px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+
+  span {
+    width: 900px;
+    color: #eee;
+    font-size: 75px;
+    line-height: 75px;
+    font-family: $font;
+    text-align: center;
+    font-weight: 800;
+    background: linear-gradient(
+      318deg,
+      $accent-color 0,
+      $secondary-color 50%,
+      $tertiary-color 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

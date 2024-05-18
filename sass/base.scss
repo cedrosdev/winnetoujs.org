@@ -1,0 +1,21 @@
+@use "./vars.scss" as *;
+@import "../node_modules/win-animate/src/animateCore.scss";
+@import "../node_modules/win-animate/src/zooming_entrances/zoomIn.scss";
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #1a1a1a;
+}
+:root {
+  --base: 600px;
+  --primary-color: #8f4598;
+  --secondary-color: #6a2673;
+  --tertiary-color: #cc94d2;
+
+  --accent-color: #ff009c;
+}

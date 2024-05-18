@@ -42,6 +42,97 @@
             "foreground": "#008075",
             "fontStyle": "italic"
           }
+        },
+
+        {
+          "scope": "variable.other.readwrite.js",
+          "settings": {
+            "foreground": "#f0ffea",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": "variable.other.constant.js",
+          "settings": {
+            "foreground": "#e6ff76",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": "variable.other.property.js",
+          "settings": {
+            "foreground": "#ce85ff",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "string.quoted.double.js, string.template.js",
+          "settings": {
+            "foreground": "#48ff05",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "constant.other.object.js",
+          "settings": {
+            "foreground": "#ffe600",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "constant.other.property.js",
+          "settings": {
+            "foreground": "#ffe600",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": "source.js",
+          "settings": {
+            "foreground": "#9683ff",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": "punctuation.definition.template-expression.begin.js,punctuation.definition.template-expression.end.js",
+          "settings": {
+            "foreground": "#ff05e2",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": "meta.arguments.js",
+          "settings": {
+            "foreground": "#ffd5f2",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "entity.name.type.instance.jsdoc",
+          "settings": {
+            "foreground": "#c2b753"
+          }
+        },
+        {
+          "scope": "comment.block.documentation.js entity.name.type.instance.jsdoc",
+          "settings": {
+            "foreground": "#33a02f",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": "comment.block.documentation.js storage.type.class.jsdoc",
+          "settings": {
+            "foreground": "#acacac",
+            "fontStyle": ""
+          }
+        },
+        {
+          "scope": "punctuation.definition.comment.js,comment.line.double-slash.js",
+          "settings": {
+            "foreground": "#5e5e5e",
+            "fontStyle": "italic"
+          }
         }
       ]
     },
@@ -198,7 +289,7 @@
     "editor.suggest.showClasses": true,
     "javascript.preferences.importModuleSpecifierEnding": "js",
     "workbench.editor.revealIfOpen": true,
-    "workbench.colorTheme": "Dark Feminine Italic"
+    "workbench.colorTheme": "Epic Gamer Theme Dark"
     // "workbench.colorTheme": "Bearded Theme Black & Diamond Soft"
   }
 }
