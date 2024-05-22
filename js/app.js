@@ -6,12 +6,19 @@ import {
   buttonSnippet,
   codeDiv,
   divOutputSnippet,
+  footer,
+  myDiv,
+  myImg,
   splash,
 } from "./constructos/homeBody.js";
+import { transform } from "./code_highlighter.js";
+import { icons_arrow_right_long } from "./constructos/_icons.js";
 
 let wowContainer = wow({}).create("#app").ids.wow;
 navbar().create(wowContainer);
-footerWow().create(wowContainer);
+footerWow({
+  icon: icons_arrow_right_long().constructoString(),
+}).create(wowContainer);
 logoText().create(wowContainer);
 let winnetouLogo = logo({}).create(wowContainer);
 
@@ -30,21 +37,21 @@ let winnetouLogo = logo({}).create(wowContainer);
 })();
 
 splash({
-  text: "Try the simplicity of WinnetouJs, the indie way to create web applications",
+  text: "Try the simplicity of WinnetouJs, the indie way to create vanilla javascript web applications",
 }).create("#app");
 
 let code1 = codeDiv({
-  title: "Simple button increment",
-  code: `
-let clicks = 0;
-let text = Winnetou.initMutable(\`You clicked me \${clicks} times.\`);
-let btn = button({
+  title: "Simple button increment example",
+  code: transform(`
+let clicks = 0,
+ text = Winnetou.initMutable(\`You clicked me \${clicks} times.\`),
+ btn = button({
   text: { mutable: text },
   onclick: Winnetou.fx(() => {
     clicks++;
     Winnetou.setMutable(text, \`You clicked me \${clicks} times.\`);
   }),
-}).create(myDivOutput);`,
+}).create('#app');`),
 }).create("#app").ids.result;
 
 let output = divOutputSnippet().create(code1);
@@ -57,3 +64,96 @@ let btn = buttonSnippet({
     Winnetou.setMutable(text, `You clicked me ${clicks} times.`);
   }),
 }).create(output.ids.divOutputSnippet);
+
+// ------------------------
+
+splash({
+  text: "Feel the strength of an integrated workflow to build web components: constructos",
+}).create("#app");
+
+let code2 = codeDiv({
+  title: "Example of creating dynamic lists",
+  code: transform(
+    `// myComponents.html
+&ltwinnetou&gt
+  &ltdiv id=&quot[[myDiv]]&quot&gt
+    {{?content%Set the text content of a div}}
+  &lt/div&gt
+&lt/winnetou&gt
+&ltwinnetou&gt
+  &ltimg id=&quot[[myImg]]&quot src=&quot{{myImgSrc}}&quot /&gt
+&lt/winnetou&gt
+
+// app.js
+for (let i = 0; i < 10; i++) {
+  let card = myDiv().create('#app').ids.myDiv;
+  myImg({
+    myImgSrc: \`https://api.multiavatar.com/mary\${i}.png\`
+  }).create(card);
+  myDiv({
+    content: "Mary " + i
+  }).create(card);
+}`
+  ),
+}).create("#app").ids.result;
+
+let output2 = myDiv({
+  myDivStyle: `
+  width:100%;
+  max-height:100%;
+  overflow-y:scroll;
+  padding:20px;
+  `,
+}).create(code2).ids.myDiv;
+
+for (let i = 0; i < 10; i++) {
+  let card = myDiv({
+    myDivStyle:
+      "display:flex;border:2px solid #777;padding:20px;border-radius:5px;margin:5px; align-items:center;",
+  }).create(output2).ids.myDiv;
+
+  myImg({
+    myImgSrc: `../images/avatars/mary${i}.png`,
+    myImgStyle: "width:50px;",
+  }).create(card);
+
+  myDiv({
+    myDivStyle: "margin-left:10px;color:#ccc;",
+    content: "Mary " + i,
+  }).create(card);
+}
+
+// ------------------------
+
+splash({
+  text: "Get the power of not relying on jsx, typescript and/or any other type of javascript abstraction",
+}).create("#app");
+
+let code3 = codeDiv({
+  title: "Using jsdoc to get type checking on vscode",
+  code: transform(`/**
+  * Changes background color
+  * @param {string} class_ Set class name to toggle
+  */
+ const toggleBg = class_ => Winnetou.select('#app').toggleClass(class_)
+ 
+ button({
+   buttonText: "Change my color",
+   onclick: Winnetou.fx(() => toggleBg("alt")),
+ }).create('#app');`),
+}).create("#app").ids.result;
+
+/**
+ * Changes background color
+ * @param {string} class_ Set class name to toggle
+ */
+const toggleBg = class_ => Winnetou.select(code3).toggleClass(class_);
+
+buttonSnippet({
+  buttonText: "Change my color",
+  onclick: Winnetou.fx(() => toggleBg("alt")),
+}).create(code3);
+
+// ------------------------
+
+footer().create("#app");

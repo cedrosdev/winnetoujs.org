@@ -57,19 +57,29 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   border-top: 1px solid #111;
+  height: 86px;
 
-  .inner {
+  .btn {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 100%;
+    width: 200px;
+    height: 50px;
     max-width: 1500px;
-    padding: 30px;
     color: #aaa;
-    font-family: monospace;
-    // border: 1px solid white;
+    font-family: $font;
+    border: 1px solid $secondary-color;
+    font-size: 17px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      border: 1px solid $accent-color;
+    }
   }
 }
 
@@ -94,4 +104,11 @@
     font-style: italic;
     display: block;
   }
+}
+
+svg {
+  width: 15px;
+  height: 15px;
+  fill: white;
+  margin-left: 10px;
 }
