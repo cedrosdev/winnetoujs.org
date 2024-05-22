@@ -1,3 +1,25 @@
 <winnetou d="splash">
   <div id="[[splash]]" class="splash"><span>{{text}}</span></div>
 </winnetou>
+
+<winnetou>
+  <div id="[[codeDiv]]" class="codeDiv">
+    <div class="_title">{{title}}</div>
+    <div class="_content">
+      <div class="_result" id="[[result]]"></div>
+      <div class="_code">
+        <pre><code class="javascript">{{code}}</code></pre>
+      </div>
+    </div>
+  </div>
+</winnetou>
+
+<winnetou>
+  <div class="divOutputSnippet" id="[[divOutputSnippet]]"></div>
+</winnetou>
+
+<winnetou>
+  <button onclick="{{onclick}}" class="buttonSnippet" id="[[buttonSnippet]]">
+    {{buttonText}}
+  </button>
+</winnetou>

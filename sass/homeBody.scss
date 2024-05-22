@@ -27,3 +27,77 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+.codeDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  margin-top: 60px;
+
+  ._title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #aaa;
+  }
+
+  ._content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 20px;
+
+    ._result {
+      border: 1px solid white;
+      width: 500px;
+      height: 300px;
+      padding: 20px;
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+    ._code {
+      padding: 20px;
+      border-radius: 5px;
+      width: 700px;
+      line-height: 25px;
+      font-size: 14px;
+      background-color: #2e343f !important;
+
+      pre {
+        margin: 0px;
+        code {
+          font-family: "Courier New", Courier, monospace;
+        }
+      }
+    }
+  }
+}
+
+.divOutputSnippet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.buttonSnippet {
+  background-color: #eee;
+  color: $accent-color;
+  border: none;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    color: #111;
+  }
+  &:active {
+    color: white;
+  }
+}

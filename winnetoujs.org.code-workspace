@@ -289,7 +289,7 @@
     "editor.suggest.showClasses": true,
     "javascript.preferences.importModuleSpecifierEnding": "js",
     "workbench.editor.revealIfOpen": true,
-    "workbench.colorTheme": "Epic Gamer Theme Dark"
+    "workbench.colorTheme": "Horizon"
     // "workbench.colorTheme": "Bearded Theme Black & Diamond Soft"
   }
 }
