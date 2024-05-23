@@ -10,9 +10,11 @@ import {
   myDiv,
   myImg,
   splash,
+  splash2,
+  startHere,
 } from "./constructos/homeBody.js";
 import { transform } from "./code_highlighter.js";
-import { icons_arrow_right_long } from "./constructos/_icons.js";
+import { icons_arrow_right_long, icons_heart } from "./constructos/_icons.js";
 
 let wowContainer = wow({}).create("#app").ids.wow;
 navbar().create(wowContainer);
@@ -130,7 +132,7 @@ splash({
 }).create("#app");
 
 let code3 = codeDiv({
-  title: "Using jsdoc to get type checking on vscode",
+  title: "Using jsdoc to get type checking in webstorm and vscode",
   code: transform(`/**
   * Changes background color
   * @param {string} class_ Set class name to toggle
@@ -156,4 +158,17 @@ buttonSnippet({
 
 // ------------------------
 
-footer().create("#app");
+// ------------------------
+
+splash({
+  text: "Welcome to your new web development home. Your code flow, simplified.",
+}).create("#app");
+
+splash2({
+  text: "You don't need to \"learn\" WinnetouJs, it's pure vanilla javascript. If you know js you know winnetou. Get started today.",
+}).create("#app");
+
+startHere({ onclick: "" }).create("#app");
+// ------------------------
+
+footer({ heart: icons_heart().constructoString() }).create("#app");
