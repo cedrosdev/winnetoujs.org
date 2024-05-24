@@ -272,7 +272,7 @@
 		  */
     "scm.autoReveal": false,
     "explorer.autoReveal": false,
-    "editor.fontFamily": "'Victor Mono','monospace', monospace, 'Droid Sans Fallback','Victor Mono'",
+    "editor.fontFamily": "'Victor Mono','Fira Code','monospace', monospace, 'Droid Sans Fallback','Victor Mono'",
     "editor.fontLigatures": true,
     // "workbench.colorTheme": "Bearded Theme Solarized Reversed",
     "editor.suggest.showStructs": true,

@@ -30,8 +30,7 @@ let winnetouLogo = logo({}).create(wowContainer);
   await anim(winnetouLogo.ids.pillar_2, "zoomIn");
   Winnetou.select(winnetouLogo.ids.pillar_3).css("visibility", "visible");
   await anim(winnetouLogo.ids.pillar_3, "zoomIn");
-
-  setTimeout(() => {
+  -setTimeout(() => {
     Winnetou.select(winnetouLogo.ids.pillar_1).addClass("animation");
     Winnetou.select(winnetouLogo.ids.pillar_2).addClass("animation");
     Winnetou.select(winnetouLogo.ids.pillar_3).addClass("animation");

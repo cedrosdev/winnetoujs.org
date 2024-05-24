@@ -183,6 +183,7 @@ class codeDiv_ extends Constructos {
         return `
   <div id="codeDiv-win-${identifier}" class="codeDiv">
     <div class="_title">${(elements_?.title)}</div>
+
     <div class="_content">
       <div class="_result" id="result-win-${identifier}"></div>
       <div class="_code">

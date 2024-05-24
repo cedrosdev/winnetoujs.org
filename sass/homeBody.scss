@@ -13,6 +13,11 @@
     color: #eee;
     font-size: 75px;
     line-height: 85px;
+
+    @media (width<800px) {
+      font-size: 59px;
+      line-height: 59px;
+    }
     font-family: $font;
     text-align: center;
     font-weight: 900;
@@ -41,6 +46,11 @@
     font-size: 30px;
     font-weight: 600;
     color: #aaa;
+    @media (width<800px) {
+      text-align: center;
+      width: 100%;
+      font-size: 16px;
+    }
   }
 
   ._content {
@@ -48,11 +58,15 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    flex-wrap: wrap;
     margin-top: 20px;
 
     ._result {
       border: 1px solid white;
       width: 500px;
+      @media (width < 800px) {
+        width: 90%;
+      }
       height: 300px;
       padding: 20px;
       background-color: #444;
@@ -65,6 +79,9 @@
       padding: 20px;
       border-radius: 5px;
       width: 700px;
+      @media (width < 800px) {
+        width: 100%;
+      }
       line-height: 25px;
       font-size: 14px;
       background-color: #2e343f !important;
@@ -72,6 +89,11 @@
       pre {
         margin: 0px;
         color: #ccc;
+
+        @media (width < 800px) {
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
         code,
         span {
           font-family: "Courier New", Courier, monospace;
@@ -118,18 +140,13 @@
     color: #777;
     font-size: 45px;
     line-height: 45px;
+    @media (width<800px) {
+      font-size: 35px;
+      line-height: 35px;
+    }
     font-family: $font;
     text-align: center;
     font-weight: 900;
-    // background: linear-gradient(
-    //   318deg,
-    //   $accent-color 0,
-    //   $secondary-color 50%,
-    //   $tertiary-color 100%
-    // );
-    // -webkit-background-clip: text;
-    // background-clip: text;
-    // -webkit-text-fill-color: transparent;
   }
 }
 
