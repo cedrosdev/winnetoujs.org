@@ -18,6 +18,11 @@
       font-size: 59px;
       line-height: 59px;
     }
+
+    @media (width<500px) {
+      font-size: 50px;
+      line-height: 50px;
+    }
     font-family: $font;
     text-align: center;
     font-weight: 900;
@@ -48,6 +53,7 @@
     color: #aaa;
     @media (width<800px) {
       text-align: center;
+      padding: 0px 20px;
       width: 100%;
       font-size: 16px;
     }
@@ -60,6 +66,7 @@
     align-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
+    max-width: 100%;
 
     ._result {
       border: 1px solid white;
