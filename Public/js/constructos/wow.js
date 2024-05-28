@@ -177,6 +177,7 @@ class footerWow_ extends Constructos {
   /**
    * 
    * @param {object} elements
+   * @param {any} elements.getStarted 
    * @param {any} elements.icon 
    * @param {object} [options]
    * @param {any=} options.identifier
@@ -192,7 +193,7 @@ class footerWow_ extends Constructos {
       code(elements_) {
         return `
   <div id="footerWow-win-${identifier}" class="footerWow">
-    <div class="btn">Get started ${(elements_?.icon)}</div>
+    <div class="btn" onclick="${(elements_?.getStarted)}">Get started ${(elements_?.icon)}</div>
   </div>
 `
       },

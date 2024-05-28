@@ -1,0 +1,207 @@
+:root {
+  --fg1: #aaa;
+  --fg-title: #ccc;
+  --bg: #222;
+  --nav-bg: #333;
+  --content-bg: #2a2a2a;
+  --accent-color: #ff49c6;
+  --code-bg: #0a0a0a;
+  --code-fg: #fff;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Prompt";
+  color: var(--fg1);
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 900;
+  color: var(--fg-title);
+}
+
+h2 {
+  margin-top: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--fg-title);
+}
+
+.category {
+  font-size: 16px;
+  font-weight: 100;
+  margin-bottom: -10px;
+  display: block;
+  color: var(--fg-title);
+}
+
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: var(--bg);
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  height: 95px;
+  top: 0px;
+  left: 0px;
+  background-color: var(--nav-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 20px;
+}
+.navbar ._left {
+  font-family: "Montserrat Alternates";
+  font-weight: 900;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.navbar ._left img {
+  width: 70px;
+  margin-right: 20px;
+}
+.navbar ._right a {
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 0px;
+  margin-left: 10px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s;
+}
+.navbar ._right a:hover {
+  border-bottom: 1px solid var(--fg1);
+}
+.rainbow {
+  width: 100%;
+  height: 2px;
+  content: "";
+  background-color: rgb(132, 84, 255);
+  background: linear-gradient(45deg, #8f4598, #6a2673, #cc94d2);
+  position: fixed;
+  left: 0px;
+  top: 95px;
+}
+
+.leftMenu {
+  position: fixed;
+  height: calc(100vh - 100px);
+  background-color: var(--bg2);
+  width: 300px;
+  top: 100px;
+  left: 0px;
+  padding: 20px;
+}
+.leftMenu ._title,
+.leftMenu ._title2 {
+  font-size: 25px;
+  font-weight: 100;
+}
+.leftMenu ._title2 {
+  margin-top: 30px;
+}
+
+.leftMenu a {
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--fg1);
+  transition: all 0.2s;
+}
+.leftMenu a:hover {
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  margin-top: 100px;
+  width: 700px;
+  max-width: 700px;
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+  background-color: var(--content-bg);
+}
+.content b {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+p code {
+  display: inline-block;
+  background-color: var(--code-bg);
+  padding: 0px 5px;
+  border-radius: 3px;
+  color: var(--code-fg);
+  font-weight: 200;
+}
+
+.footer ._btn {
+  width: 100%;
+  height: 200px;
+  margin-top: 200px;
+  background-color: var(--nav-bg);
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+.footer ._btn a {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: 2px solid var(--accent-color);
+  text-decoration: none;
+  transition: all 0.6s;
+}
+.footer ._btn a:hover {
+  border: 2px solid var(--fg1);
+}
+.footer ._btn a svg {
+  width: 20px;
+  fill: var(--fg1);
+  margin-left: 20px;
+}
+
+.footer ._copy {
+  width: 100%;
+
+  margin-top: 200px;
+
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.terminal {
+  width: 100%;
+  background-color: var(--code-bg);
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "Source Code Pro";
+  color: var(--accent-color);
+  padding: 20px;
+  border-radius: 5px;
+}

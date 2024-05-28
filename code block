@@ -1,0 +1,9 @@
+<div class="codeOutput">
+  <pre><code class="onloadCode">
+    
+let a = x => { 
+   return x + 1 
+}
+   
+  </code></pre>
+</div>

@@ -186,8 +186,8 @@ class codeDiv_ extends Constructos {
 
     <div class="_content">
       <div class="_result" id="result-win-${identifier}"></div>
-      <div class="_code">
-        <pre><code class="javascript">${(elements_?.code)}</code></pre>
+      <div class="codeOutput">
+        <pre><code>${(elements_?.code)}</code></pre>
       </div>
     </div>
   </div>

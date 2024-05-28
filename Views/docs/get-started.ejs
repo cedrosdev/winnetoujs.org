@@ -1,0 +1,62 @@
+<span class="category">Getting started</span>
+<h1>Understanding Winnetoujs</h1>
+
+<p>
+  The Winnetou.js framework was developed to address the need for reusing HTML components within a web application, encapsulating syntax within classes that could be invoked at any time in the JavaScript code. However, it has since evolved to tackle more than just component reuse. Today, WinnetouJs facilitates the entire process of creating and expanding web applications.
+</p>
+
+<p>
+  With WinnetouJs, you can implement a dynamic routing system within your application, manage color themes, create translated versions, use SVG icons in a lightweight and efficient manner, control the state of your application, and finally, generate a single obfuscated and minified bundle ready for production. You don't need to worry about configuring Webpack, as it comes pre-configured with WinnetouJs.
+</p>
+
+<h2>How it works?</h2>
+
+<p>
+  WinnetouJs works based on VanillaJs, that is, it uses pure JavaScript to implement its functionalities. This way we don't mix html and javascript in the same file and we just transpile the web components that we call <b>constructos</b>. Winnetou provides an executable node file called <b>WBR</b> (Winnetou Bundle Releaser), which is responsible for interpreting the html constructos and making them available in the javascript code. Thanks to WBR's <code>watch</code> function, simply create or change a constructo and it will be available to use in your code. In other words, the only abstraction that WinnetouJs uses are constructos.
+</p>
+
+<h2>Constructos</h2>
+<p>
+  Constructos are blocks of HTML code that are transpiled by the Winnetou bundler (WBR) and made available via import in your native javascript code.
+</p>
+
+<p class="code-title">
+  Winnetou html constructo example.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">navbar.html</span>
+  <pre><code class="onloadCode">
+    
+&lt;winnetou&gt;
+  &lt;div id=&quot;[[navbar]]&quot; class=&quot;navbar&quot;&gt;
+    &lt;!-- content ...--&gt;
+  &lt;/div&gt;  
+&lt;/winnetou&gt;
+   
+  </code></pre>
+</div>
+
+<p>
+  The code above will make the <code>navbar</code> constructo available in your javascript code.
+</p>
+
+<p class="code-title">
+  Using the constructo created in our html file.
+</p>
+<div class="codeOutput">
+  <span class="code-file-name">myAwesomeApp.js</span>
+  <pre><code class="onloadCode">
+    
+import {navbar} from "./constructos/navbar.js";
+navbar().create('#app');
+
+   
+  </code></pre>
+</div>
+
+<p>
+  This is just an introductory example of how simple WinnetouJs is. Did you see that in <code>myAwesomeApp.js</code> no type of abstraction was used, just pure javascript? With this mentality that our framework was created, we believe that javascript is already beautiful and robust enough, it doesn't need decorations (besides, we all love vanilla ice cream here).
+</p>
+
+<%- include('../template/footer.ejs',{text:'Setting Up',url:'/docs/setting-up'}) %>

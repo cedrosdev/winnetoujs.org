@@ -1,4 +1,4 @@
-import { Winnetou } from "../node_modules/winnetoujs/src/winnetou.js";
+import { Winnetou } from "winnetoujs";
 import { logo } from "./constructos/animation.js";
 import { footerWow, logoText, navbar, wow } from "./constructos/wow.js";
 import { anim } from "../node_modules/win-animate/src/animate.js";
@@ -20,6 +20,7 @@ let wowContainer = wow({}).create("#app").ids.wow;
 navbar().create(wowContainer);
 footerWow({
   icon: icons_arrow_right_long().constructoString(),
+  getStarted: Winnetou.fx(() => (location.href = "/docs/get-started")),
 }).create(wowContainer);
 logoText().create(wowContainer);
 let winnetouLogo = logo({}).create(wowContainer);

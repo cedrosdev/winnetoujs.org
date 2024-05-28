@@ -14,3 +14,7 @@ console.log("Winnetoujs.org running on 3020");
 app.get("/", (req, res) => {
   res.render("home/home");
 });
+
+app.get("/docs/:route", (req, res) => {
+  res.render(`template/template`, { path: req.params.route });
+});
