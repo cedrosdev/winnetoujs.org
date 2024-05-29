@@ -16,7 +16,9 @@
 .codeOutput pre code,
 .codeOutput pre span {
   font-family: "Source Code Pro";
-  font-size: 16px;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 @media (width < 800px) {
@@ -62,8 +64,11 @@
   color: #ffc95d; /* Nord13 */
 }
 .method {
-  color: #b48ead; /* Nord15 */
+  color: #27ff1c; /* Nord15 */
 }
 .quotes {
   color: red;
+}
+.string {
+  color: #ff7f7f;
 }

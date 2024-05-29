@@ -4,6 +4,7 @@
   --bg: #222;
   --nav-bg: #333;
   --content-bg: #2a2a2a;
+  --accent-grey: #666;
   --accent-color: #ff49c6;
   --code-bg: #0a0a0a;
   --code-fg: #fff;
@@ -12,7 +13,7 @@
   box-sizing: border-box;
   font-family: "Prompt";
   color: var(--fg1);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 h1 {
@@ -147,10 +148,22 @@ body {
 p code {
   display: inline-block;
   background-color: var(--code-bg);
-  padding: 0px 5px;
+  padding: 2px 5px;
   border-radius: 3px;
   color: var(--code-fg);
   font-weight: 200;
+  font-family: "Source Code Pro";
+  font-size: 14px;
+}
+
+p a {
+  text-decoration: none;
+  padding: 0px 2px;
+  border-bottom: 1px dashed var(--accent-grey);
+  transition: all 0.5s;
+}
+p a:hover {
+  border-bottom: 1px dashed var(--code-fg);
 }
 
 .footer ._btn {
