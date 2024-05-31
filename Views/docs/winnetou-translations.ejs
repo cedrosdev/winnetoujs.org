@@ -1,0 +1,119 @@
+<span class="category">Addons</span>
+<h1>Translations</h1>
+
+<p>
+  One of WinnetouJs' most powerful tools is translate. With this method it is possible to have all the phrases, titles, texts and labels in an json file separate from the code and with just one method we can change which language file the application will feed on.
+
+  For that we have two methods, the <code>updateTranslations</code> and the <code>changeLang</code>.
+</p>
+<p>
+
+  To begin you must define the defaultLang in win.config.js. The defaultLang name is the name of the default json file for your application's text.Remember that the WinnetouJs' translations only work in applications that have a back-end.
+</p>
+<p>
+  All translations files must be inside folder <code>./translations</code> at Public folder of project.
+</p>
+
+<h2>Settings</h2>
+<p>
+  Set the default languege file in win.config.js: <code>defaultLang: "en-us",</code>. In folder <code>./translations</code> you need to have a file called <code>en-us.json</code>.
+</p>
+
+<h2>Creating a json translation file</h2>
+<p>
+  Inside en-us.json, create keys and values that will be your keys.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">en-us.json</span>
+  <pre><code class="onloadCode">
+        
+{
+    "welcome": "Welcome to new Winnetou Translations.",
+    "title": "This is your title"
+}
+       
+      </code></pre>
+</div>
+
+<p>Create a new file for each translation.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">es.json</span>
+  <pre><code class="onloadCode">
+        
+{
+    "welcome": "Bienvenido a las nuevas Traducciones de WinnetouJs.",
+    "title": "Este es tu titulo"
+}
+       
+      </code></pre>
+</div>
+
+<div class="codeOutput">
+  <span class="code-file-name">chinese.json</span>
+  <pre><code class="onloadCode">
+          
+{
+    "welcome": "欢迎来到新的 Winnetou 翻译。",
+    "title": "这是你的标题"
+}
+         
+        </code></pre>
+</div>
+
+<p>
+  When you run <code>node wbr --bundleRelease</code>, the translations will be transpiled to an js file <code>_strings.js</code> which allow you to import strings in your native code.
+</p>
+
+<h2>How to use</h2>
+
+<p>
+  You need to import strings to your code, call <code>updateTranslations</code> and then start your app. See code below.</p>
+
+
+<div class="codeOutput">
+  <span class="code-file-name">appTranslations.js</span>
+  <pre><code class="onloadCode">
+                
+import { Winnetou } from "winnetoujs";
+import _strings from "./_strings.js";
+import {simpleDiv} from './constructos/components.html'
+
+Winnetou.updateTranslations(_strings).then(() => startMyApp());
+
+async function startMyApp(){
+    simpleDiv({
+        text: _strings.title
+    }).create('#app')
+}
+               
+              </code></pre>
+</div>
+
+<h2>Switching languages</h2>
+
+<p>
+  In order to switch languages, call <code>changeLang</code> method.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">appTranslations.js</span>
+  <pre><code class="onloadCode">
+                  
+...
+
+const changeToChinese = () =>{
+    Winnetou.changeLang('chinese')
+}
+                 
+                </code></pre>
+</div>
+
+<p>The param of changeLang needs to be the name of translation file without .json.</p>
+
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Winnetou Sass Transpiler',url:'/docs/sass-transpiler'}) %>

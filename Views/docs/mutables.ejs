@@ -1,0 +1,116 @@
+<span class="category">Mutables</span>
+<h1>Constructos State Management</h1>
+<p>
+  WinnetouJs uses the concept of Virtual DOM to manipulate the application state. There are several native ways to deal with HTML document nodes, like <code>getElementById</code> for example, and in Winnetou you can change the constructs in this way without any problem. However, we also have our own way of manipulating Winnetou web components (constructs) which are mutables.
+</p>
+
+<h2>What are mutables</h2>
+
+<p>
+  Mutables are variables that can be kept in the client's memory and that can be retrieved when returning to the app. Furthermore, by changing the value of a mutable, we can change a construct, making it update its text, color, size, etc.
+</p>
+
+<h2>Starting a mutable</h2>
+<p>
+  To start a mutable, use the Winnetou Core <code>initMutable</code> command.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutableApp.js</span>
+  <pre><code class="onloadCode">
+        
+import {Winnetou} from 'winnetoujs';
+...
+let name = Winnetou.initMutable('John');
+       
+      </code></pre>
+</div>
+
+<h2>Using mutables in constructs</h2>
+
+<p>
+  To use a mutable in a construct, use <code>{mutable:variable_name}</code> as the value of a prop.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutableApp.js</span>
+  <pre><code class="onloadCode">
+        
+import {Winnetou} from 'winnetoujs';
+import {profileCard} from './constructos/cards.js';
+...
+let userName = Winnetou.initMutable('Mary');
+let userAge = Winnetou.initMutable('23');
+
+profileCard({
+    name: {mutable: userName},
+    age: {mutable: userAge}
+}).create('#app');
+       
+      </code></pre>
+</div>
+<h2>Changing the application state</h2>
+
+<p>
+  To update the DOM, use the <code>setMutable</code> method.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutableApp.js</span>
+  <pre><code class="onloadCode">
+          
+import {Winnetou} from 'winnetoujs';
+import {profileCard} from './constructos/cards.js';
+...
+let userName = Winnetou.initMutable('Mary');
+let userAge = Winnetou.initMutable('23');
+
+profileCard({
+    name: {mutable: userName},
+    age: {mutable: userAge}
+}).create('#app');
+
+Winnetou.setMutable(userName,'John');
+// now profileCard will show 'John' in name prop
+        
+        </code></pre>
+</div>
+<h2>Not Persistent</h2>
+<p>
+  We don't always need the variable's value to be stored on the client, so we can use the <code>notPersistent</code> configuration of mutables.
+</p>
+<div class="codeOutput">
+  <span class="code-file-name">mutableApp.js</span>
+  <pre><code class="onloadCode">
+            
+import {Winnetou} from 'winnetoujs';
+...
+Winnetou.setMutable('mutable_name','mutable_value','notPersistent');
+           
+          </code></pre>
+</div>
+
+<p>
+  Attention: initMutable is always notPersistent.
+</p>
+
+<h2>Reading mutables</h2>
+<p>
+  Use <code>getMutable('mutable_name')</code> in order to read the value of a mutable.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutableApp.js</span>
+  <pre><code class="onloadCode">
+              
+import {Winnetou} from 'winnetoujs';
+...
+let val = Winnetou.getMutable(userName)
+             
+            </code></pre>
+</div>
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Winnetou Fx',url:'/docs/winnetou-fx'}) %>

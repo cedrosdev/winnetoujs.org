@@ -1,0 +1,124 @@
+<span class="category">Constructos</span>
+<h1>Advanced Options</h1>
+
+<p>
+  The create method can take two parameters, clear and reverse. Use clear to clear the output before inserting the constructo and reverse to print the constructo at the beginning of the component and not at the end.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">options.js</span>
+  <pre><code class="onloadCode">
+        
+// to clear output
+myTextConstructo({ text: "Hello World!" }).create("#app",{
+    clear:true
+});
+
+// to prepend
+myTextConstructo({ text: "Hello World!" }).create("#app",{
+    reverse:true
+});
+       
+      </code></pre>
+</div>
+
+<h2>Ids of Constructos</h2>
+<p>
+  Each constructo get an unique id by Winnetou in order to it can be handled in your vanilla code.
+  Constructo class returns a list of self ids to posterior reference. To get this, set a variable to the constructo to handle behaviors.
+
+
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">ids.js</span>
+  <pre><code class="onloadCode">
+
+let myDiv = myTextConstructo({ text: "Hello World!" }).create("#app",{
+    reverse:true
+})
+
+console.log(myDiv.ids.myTextConstructo)
+       
+      </code></pre>
+</div>
+
+<p>
+  In this above case, <code>myDiv.ids.myTextConstructo</code> will return the id provided by Winnetou, <code>myTextConstructo-win-1</code>, using this formula: <code>constructoName-win-numberID</code>.
+</p>
+
+<h2>Identifier</h2>
+
+<p>
+  Some times we need to know exactly how an id will be called, for this we have and identifier option.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">identifier.js</span>
+  <pre><code class="onloadCode">
+  
+  let myDiv = myTextConstructo({ text: "Hello World!" },{
+    identifier:'hello_world'
+  }).create("#app",{
+      reverse:true
+  })
+  
+  console.log(myDiv.ids.myTextConstructo)
+  // the output will be myTextConstructo-win-hello_world
+
+         
+        </code></pre>
+</div>
+
+<p>
+  Here, the id of our constructo will be <code>myTextConstructo-win-hello_world</code>
+</p>
+
+<h2>Props</h2>
+
+<p>Props can be optional and can receive descriptions.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">myConstructos.html</span>
+  <pre><code class="onloadCode">
+    
+&lt;winnetou&gt;
+    &lt;button id=&quot;[[btn]]&quot; class=&quot;{{class?}}&quot;&gt;{{text}}&lt;/button&gt; 
+&lt;/winnetou&gt;
+
+  
+           
+          </code></pre>
+</div>
+
+<p>
+  In this above code, the <code>{{class?}}</code> prop is optional. To add a description in a prop, use <code>%</code>.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">myConstructos.html</span>
+  <pre><code class="onloadCode">
+      
+&lt;winnetou&gt;
+    &lt;button id=&quot;[[btn]]&quot; 
+        class=&quot;{{?class%Define the button class}}&quot;&gt;
+            {{text}}
+    &lt;/button&gt; 
+&lt;/winnetou&gt;
+  
+    
+             
+            </code></pre>
+</div>
+
+<h2>create() vs constructoString()</h2>
+<p>
+  The constructo create method will append (or prepend) the constructo in real DOM. You can pass an id or query selector as parameter in order to set where this constructo will be put on.
+  Some times we need to get the string version of a constructo, for this we got <code>constructoString</code> method.
+</p>
+
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Lazy Loading',url:'/docs/lazy-load'}) %>

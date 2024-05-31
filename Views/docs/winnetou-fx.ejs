@@ -1,0 +1,60 @@
+<span class="category">Mutables</span>
+<h1>Winnetou FX</h1>
+
+<p>
+  Winnetou FX is a method that allows you to create functions within props, so that event handlers such as onClick, onChange and onFocus can be handled.
+</p>
+
+
+<div class="codeOutput">
+  <span class="code-file-name">post.html</span>
+  <pre><code class="onloadCode">
+
+&lt;winnetou&gt;
+    &lt;div
+        id=&quot;[[post]]&quot;
+        onclick=&quot;{{action}}&quot;
+        style=&quot;
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+            cursor: pointer;
+        &quot;
+    &gt;
+        &lt;h1&gt;{{name}}&lt;/h1&gt;
+        &lt;h2&gt;{{status}}&lt;/h2&gt;
+        &lt;p&gt;{{message}}&lt;/p&gt;
+        &lt;i&gt;{{likes}} Likes&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;/winnetou&gt;
+
+       
+      </code></pre>
+</div>
+
+
+<div class="codeOutput">
+  <span class="code-file-name">postHandler.js</span>
+  <pre><code class="onloadCode">
+
+let status = Winnetou.initMutable('Offline');
+post({
+    likes: '202',
+    message: "I'm so excited about WinnetouJs!",
+    name: "Peterson M.",
+    status: {
+        mutable: status,
+    },
+    action: Winnetou.fx(() => {
+        console.log('Clicked from constructo!')
+        Winnetou.setMutable(status, "Online");
+    }),
+}).create("#app");
+
+       
+      </code></pre>
+</div>
+
+
+<%- include('../template/footer.ejs',{text:'Winnetou Selectors',url:'/docs/select-methods'}) %>

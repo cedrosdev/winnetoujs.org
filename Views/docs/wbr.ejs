@@ -1,0 +1,112 @@
+<span class="category">Plugins</span>
+<h1>Winnetou Bundle Releaser - WBR</h1>
+<p>
+  The creation of the bundle is very easy and is done through the babel and webpack.
+
+  You just need to determine the entry and the out in win.config.js.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">win.config.js</span>
+  <pre><code class="onloadCode">
+        
+entry: "./js/themesApp.js",
+out: "./release",
+       
+      </code></pre>
+</div>
+
+<p>
+  and run <code>
+
+    node wbr --bundleRelease
+  </code>
+  and the bundle release will be in "./release/winnetouBundle.min.js" with the source map and lazy modules too.</p>
+
+<p>
+  You can set a object of entries and outs to compile multiple sources at the same time. You can use any identifier to yours e/o values.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">win.config.js</span>
+  <pre><code class="onloadCode">
+        
+
+export default {
+    constructosPath: "./constructos",
+    constructosOut: "./js/constructos",
+    entry: {
+        a: "./js/translateApp.js",
+        b: "./js/constructosApp.js",
+    },
+    out: {
+        a: "./release/translateApp",
+        b: "./release/constructosApp",
+    },
+    sass: "./sass",
+    icons: "./icons",
+    defaultLang: "en-us",
+};
+       
+      </code></pre>
+</div>
+
+<h2>Flags</h2>
+<p>
+  You can use flags to change wbr behavior.
+<p>
+
+<p><code>
+    node wbr : just transpile constructos and sass
+  </code></p>
+
+<p><code>
+    node wbr --bundleRelease : transpile and then compile to production
+  </code></p>
+
+<p><code>
+    node wbr --no-watch : compile or transpile without watching
+  </code></p>
+
+<p><code>
+    node wbr --bundleRelease --standalone : just compile without transpile constructos
+  </code></p>
+
+<p><code>
+    --version
+  </code></p>
+
+<p><code>
+    --help
+  </code></p>
+
+
+<h2>In Deep Projects</h2>
+<p>
+  If you are working with deep project folders and calls js files in up folders, add this dev dependencies to you main package.json on the project root, otherwise you may get some webpack errors:
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">package.json</span>
+  <pre><code class="onloadCode">
+        
+"devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/runtime": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^5.2.0"
+}
+            
+       
+      </code></pre>
+</div>
+
+
+
+<%- include('../template/footer.ejs',{text:'Compiling to Production',url:'/docs/wbr'}) %>

@@ -1,0 +1,60 @@
+<span class="category">Addons</span>
+<h1>Color Themes</h1>
+
+<p>
+  The current css now allows us to work with variables within the css and change them via javascript. That is why WinnetouJs implements the newTheme method, responsible for dynamically changing themes within web applications.
+</p>
+
+<p>
+
+  First, our app has to be using the css variables in order to create your style sheets.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">base.scss</span>
+  <pre><code class="onloadCode">
+        
+:root {
+    --main-bg-color: #222;
+    --main-fg-color: #eee;
+}
+body,
+html {
+    background-color: var(--main-bg-color);
+    color: var(--main-fg-color);
+}
+       
+      </code></pre>
+</div>
+
+<p>
+  Now we can create our themes and change them at any time. The themes will be saved in client and will be loaded the next time the user open our app.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">app.js</span>
+  <pre><code class="onloadCode">
+        
+function lightTheme() {
+    Winnetou.newTheme({
+        "--main-bg-color": "#fff",
+        "--main-fg-color": "#333",
+    });
+}
+
+function darkTheme() {
+    Winnetou.newTheme({
+        "--main-bg-color": "#222",
+        "--main-fg-color": "#eee",
+    });
+}
+            
+       
+      </code></pre>
+</div>
+
+
+
+
+
+<%- include('../template/footer.ejs',{text:'JSDOC',url:'/docs/jsdoc'}) %>

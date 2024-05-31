@@ -1,0 +1,45 @@
+<span class="category">Addons</span>
+<h1>CSS Sass Transpiler</h1>
+
+<p>
+  WinnetouJs believes in the strength of sass, so it already brings with it an onboard SASS transpiler. But that doesn't make you obliged to use sass, css can be used normally.
+
+</p>
+
+<p>
+  You can separate your project into several sass (or css) files so that the tranpiler will bring them all together in a single bundle ./release/winnetouBundle.min.css.
+
+</p>
+
+<h2>Setting up</h2>
+<p>
+  In <code>win.config.js</code> define the path of <code>.scss</code> files: <code> sass: "./sass",</code>. If you have css rules that needs to be parsed before all the rest of css content, use <code>sassInitFile</code> config to ensure that file be transpiled in top of css bundle. Use <code>cssOut: "./release",</code> to define the output folder of WBR css bundle.</p>
+
+<h2>Transpiling</h2>
+<p>
+  To transpile your sass into css, just run <code>node wbr --bundleRelease</code> in your terminal. Then, import the generated min.css into your html.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">index.html</span>
+  <pre><code class="onloadCode">
+
+  ...
+    
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/release/winnetouBundle.min.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  ...
+  &lt;script src=&quot;/release/winnetouBundle.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+       
+      </code></pre>
+</div>
+
+<p>
+  Remember, WinnetouJs will never mix html, css and javascript codes together.
+</p>
+
+
+
+
+<%- include('../template/footer.ejs',{text:'SVG Icons',url:'/docs/svg-icons'}) %>

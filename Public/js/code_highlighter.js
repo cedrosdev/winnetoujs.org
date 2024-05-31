@@ -30,12 +30,14 @@ const keys = {
   "}": "sign2",
   "[": "sign2",
   "]": "sign2",
-  create: "method",
   "&lt;": "sign2",
   "&gt;": "sign2",
   import: "const",
   export: "const",
   from: "let",
+  "default ": "method",
+  "console.log": "method",
+  updateTranslations: "method",
 };
 
 function highlightCode(code) {
@@ -55,7 +57,7 @@ function highlightCode(code) {
   const keysRegex = new RegExp(`(${escapedKeys.join("|")})`, "g");
   code = code.replace(
     keysRegex,
-    match => `<span class="${keys[match.trim()]}">${match}</span>`
+    match => `<span class="${keys[match]}">${match}</span>`
   );
 
   // Step 3: Restore strings with span elements
@@ -74,7 +76,7 @@ function highlightCode(code) {
  */
 export const transform = text => {
   // return highlightKeywords(text, keys).trim();
-  return highlightCode(text);
+  return highlightCode(text).trim();
 };
 
 window.addEventListener("load", function (event) {

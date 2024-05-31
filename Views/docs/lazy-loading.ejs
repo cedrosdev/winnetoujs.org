@@ -1,0 +1,28 @@
+<span class="category">Constructos</span>
+<h1>Lazy Loading</h1>
+
+<p>
+  Winnetou's bundler will split the final file into smaller chunks that can be loaded on demand every time you use <code>await import</code> in your code. This is the concept of lazy loading, a way for you to reduce your final min.js file.
+
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">myApp.js</span>
+  <pre><code class="onloadCode">
+
+async function loadLazyDiv() {
+    let lazies = await import("./constructos/lazy.js");
+    lazies
+        .lazyDiv({ text: "Hello, I'm a lazy constructo" })
+        .create("#app");
+}
+       
+      </code></pre>
+</div>
+<p>
+  In this case, the <code>lazyDiv</code> constructo was created within the <code>lazy.html</code> file, but its content was only imported within the asynchronous function <code>loadLazyDiv</code>, thus compile the Winnetou bundle, the final file will be smaller, since another file will also be created, minified, containing the <code>lazy.js</code> constructos.
+</p>
+
+
+
+<%- include('../template/footer.ejs',{text:'Mutables',url:'/docs/mutables'}) %>

@@ -1,0 +1,83 @@
+<span class="category">Plugins</span>
+<h1>Win Animate</h1>
+
+<p>
+  Win-animate is used to create small animations within our application. It uses the css library <a href="https://animate.style/">animate</a> to make the animations available and its great differential is the separation of each animation in a different sass file, making us import only the animations we actually use.
+</p>
+
+<p>
+  Installation
+</p>
+
+<p>
+  <code>
+    npm i win-animate;
+  </code>
+</p>
+
+<p>
+  <code>
+    node wbr --bundleRelease;
+  </code>
+</p>
+
+
+<h2>Sass imports</h2>
+<p>
+  Don't forget the animateCore.scss</p>
+
+<p>
+  <code>
+    @import "../node_modules/win-animate/src/animateCore.scss";
+  </code>
+</p>
+<p>
+  <code>
+    @import "../node_modules/win-animate/src/fading_entrances/fadeInDownBig.scss";
+  </code>
+</p>
+<p>
+  <code>
+    @import "../node_modules/win-animate/src/attention_seekers/headShake.scss";
+  </code>
+</p>
+
+<h2>Javascript imports</h2>
+<p>
+  <code>
+    import { anim } from "../node_modules/win-animate/src/animate.js";
+  </code>
+</p>
+
+<h2>
+  How to Use
+</h2>
+<p>
+  Use <code>anim()</code> function to animate a constructo.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">app.js</span>
+  <pre><code class="onloadCode">
+        
+
+let h = h1({ text: "AnimateApp.js" }).create("#app");
+anim(h.ids.h1, "headShake");
+       
+      </code></pre>
+</div>
+
+<h2>
+  Thanks to
+</h2>
+<p>
+  Daniel Eden, Elton Mesquita and Waren Gonzaga for their incredible work.
+</p>
+<p>
+  <a href="https://animate.style/">
+    https://animate.style/
+  </a>
+</p>
+
+
+<%- include('../template/footer.ejs',{text:'Compiling to Production',url:'/docs/wbr'}) %>

@@ -1,0 +1,46 @@
+<span class="category">Extras</span>
+<h1>Using Jsdoc to get type checking</h1>
+
+<p>
+  To increase the power of javascript without having to add yet another layer of abstraction, WinnetouJs adopted jsdoc. Jsdoc in addition to adding useful comments in the code, can also provide rich IntelliSense.
+</p>
+
+<p>
+  To lean more about Visual Studio Code, <a href='https://code.visualstudio.com/docs/languages/javascript#_jsdoc-support'>see this</a>.
+</p>
+
+<p>
+
+  To lean JsDoc, <a href='https://jsdoc.app/'>see this</a>.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">createCard.js</span>
+  <pre><code class="onloadCode">
+        
+/**
+*
+* @param {string} name User name of client
+* @param {string} phone The phone number
+* @param {string} addr The current address
+* @param {Number} age The age of client
+*/
+export function createCard(name, phone, addr, age) {
+    let color = age >= 18 ? "blue" : "red";
+    card({
+        color_class: color,
+        profileName: name,
+        age,
+        phone,
+        addr,
+    }).create("#app");
+}
+       
+      </code></pre>
+</div>
+
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Plugins',url:'/docs/creating-plugins'}) %>

@@ -33,7 +33,7 @@ h2 {
 .category {
   font-size: 16px;
   font-weight: 100;
-  margin-bottom: -10px;
+  margin-bottom: -20px;
   display: block;
   color: var(--fg-title);
 }
@@ -97,8 +97,10 @@ body {
 .leftMenu {
   position: fixed;
   height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
   background-color: var(--bg2);
-  width: 300px;
+  width: 400px;
   top: 100px;
   left: 0px;
   padding: 20px;
@@ -110,6 +112,25 @@ body {
 }
 .leftMenu ._title2 {
   margin-top: 30px;
+}
+
+/* For Webkit-based browsers (Chrome, Safari) */
+.leftMenu::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.leftMenu::-webkit-scrollbar-track {
+  background: var(--bg); /* Background of the scrollbar track */
+}
+
+.leftMenu::-webkit-scrollbar-thumb {
+  background-color: var(--bg); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Round corners of the scrollbar thumb */
+  border: 1px dashed var(--accent-grey); /* Optional: Add a border to the scrollbar thumb */
+}
+
+.leftMenu::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb when hovered */
 }
 
 .leftMenu a {

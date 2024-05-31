@@ -1,0 +1,57 @@
+<span class="category">Addons</span>
+<h1>SVG Icons</h1>
+
+<p>
+  If we are not careful using icons in our application it can be a problem as we may be carrying more icons than we are actually using and penalizing the user with an unnecessary load of data being trafficked. Therefore, WinnetouJs uses a different way of using icons. You should place your icons in svg format inside your icon folder and let WBR transform only the icons that you will actually use in javascript classes.
+</p>
+
+<p>
+
+  If you have for example "./icons/trash.svg", WBR will compile to "./js/constructos/_icons.js" and importing this file we will have the class "icons_trash()", You can separate the icons into folders and subfolders, like this:
+</p>
+
+<p>
+
+  ./icons/trash.svg
+  ./icons/like.svg
+  // ./js/constructos/_icons.js
+
+  ./icons/material/home.svg
+  // ./js/constructos/_icons_material.js
+
+  ./icons/dark/home.svg
+  // ./js/constructos/_icons_dark.js
+</p>
+
+<p>
+
+
+  The icons have only one element, class, which serves to associate a style to the icon, remember, to change icon color user fill css property.
+
+</p>
+
+
+<div class="codeOutput">
+  <span class="code-file-name">myAwesomeApp.js</span>
+  <pre><code class="onloadCode">
+
+import { Winnetou } from "winnetoujs";
+import { h1 } from "./constructos/componentsTest.js";        
+import { icons_star } from "./constructos/_icons.js";
+
+// using constructoString method
+const iconStar = icons_star().constructoString();        
+h1({ text: iconStar + ' this is an awesome icon!' })
+.create("#app");
+
+// using create method
+icons_star().create("#app");
+       
+      </code></pre>
+</div>
+
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Color Themes',url:'/docs/color-themes'}) %>

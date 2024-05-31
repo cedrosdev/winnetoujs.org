@@ -1,0 +1,108 @@
+<span class="category">Plugins</span>
+<h1>Win SlideScreen</h1>
+
+<p>
+  WinnetouJs has native integration with NodeJs modules, since WBR also scans the node_modules directories to compile its constructos. That way it is easy to create and publish constructos in npm and win-slidescreen is one of them.
+
+  Made to create mobile application interfaces, win-slidescreen offers everything you need to create web applications with multiple screens, which slides on the user's screen.
+</p>
+
+
+
+<h2>Installing</h2>
+<p>
+  <code>npm i win-slidescreen;</code>
+</p>
+
+<p>
+  <code>node wbr --bundleRelease;</code>
+</p>
+
+
+<h2>Importing</h2>
+<p>
+  Once installed and compiled, you must import it.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">base.html</span>
+  <pre><code class="onloadCode">
+        
+// to use in mobile version use 'SlideScreenMobile' instead.
+import { SlideScreen } from "../node_modules/win-slidescreen/src/slideScreen.js";
+import { screen, slideScreen } from "./constructos/slideScreen.js";
+       
+      </code></pre>
+</div>
+
+
+<p>
+  Note that the functions are imported directly from node_modules and the constructos from the constructosOut folder, defined in win.config.js, because WBR will transpile constructos in node_modules and put it in ./constructos output folder.
+
+
+  The slidescreen is composed of a parent container that houses all the child screens.</p>
+
+<h2>Create</h2>
+<p>
+  To create the parent container, use the slidescreen() function.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">app.js</span>
+  <pre><code class="onloadCode">
+        
+const container = slideScreen().create("#app");
+
+// Now create the child screens 
+// that will house the content of the app.
+
+mainPage = screen().create(container.ids.slideScreen);
+profilePage = screen().create(container.ids.slideScreen);
+menuPage = screen().create(container.ids.slideScreen);
+       
+      </code></pre>
+</div>
+
+
+
+
+<h2>
+  Make
+</h2>
+
+<p>
+
+
+  And then make the magic happen with the make() function.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">app.js</span>
+  <pre><code class="onloadCode">
+        
+// do not use query selector. Always use pure ids.
+SlideScreen.make(container.ids.slideScreen, "app");
+       
+      </code></pre>
+</div>
+
+
+
+<h2>Scroll</h2>
+<p>
+  To scroll between pages, use <code>scroll()</code>.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">app.js</span>
+  <pre><code class="onloadCode">
+        
+
+SlideScreen.scroll(profilePage.ids.screen);
+   
+      </code></pre>
+</div>
+
+
+
+<%- include('../template/footer.ejs',{text:'Animate Plugin',url:'/docs/win-animate'}) %>

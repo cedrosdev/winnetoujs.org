@@ -1,0 +1,117 @@
+<span class="category">Addons</span>
+<h1>Router</h1>
+
+<p>
+  The route system is already embedded in WinnetouJs and is responsible for creating dynamic routes on the frontend and making accessible the return of the physical button of the smartphones and returns of the browsers.
+
+  To use, the first thing to do is define the routes in the createRoutes method.
+</p>
+
+<h2>Creating router</h2>
+
+<p>
+
+  Routes receive functions that are called when the route is accessed by Winnetou.navigate().
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">router.js</span>
+  <pre><code class="onloadCode">
+  
+Winnetou.createRoutes({
+        "/": () => {
+            this.render()
+        },
+        "/profiles/:user": user => this.profile(user),
+        // pass method
+        "menu": () => this.menu()
+    },
+    {
+        onBack: () => {
+            console.log(
+                "This will be triggered when user press back button"
+            );
+        },
+        onGo: () => {
+            console.log(
+                "This will be triggered when user go to a route"
+            );
+        },
+    }
+);
+       
+      </code></pre>
+</div>
+
+
+
+
+
+<h2>Winnetou.navigate()</h2>
+<p>
+  It is responsible for accessing the route function and changing the browser URL.
+  <code>Winnetou.navigate("/profile/John");</code>
+</p>
+
+<h2>Winnetou.pass()</h2>
+<p>
+  Sometimes we want to set up a screen or a menu but we don't want to change the url, but we want to be able to return with the click of the physical button, for that we have to use the <code>pass();</code>
+
+  The pass method also accepts parameters like navigate.
+
+  The difference between pass and navigate is that navigate starts with a <code>/</code> and pass don't.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">router.js</span>
+  <pre><code class="onloadCode">
+        
+Winnetou.createRoutes({
+    // navigate route
+    "/": () => {
+        this.render()
+    },
+
+    //navigate route
+    "/profiles/:user": user => this.profile(user),
+
+    // pass route
+    menu: () => this.menu(),
+
+    // here we are creating a pass route
+    "userMenu/:user" : user => this.userMenu(user)
+    }
+)
+
+//and calling pass route
+Winnetou.pass("menu");
+Winnetou.pass(`userMenu/${login}`);
+       
+      </code></pre>
+</div>
+
+
+
+<h2>Using URL parameters</h2>
+<p>
+  Winnetou router supports multiple route parameters in the url, just configure them correctly in the create routes and pass the parameters to the function.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">router.js</span>
+  <pre><code class="onloadCode">
+        
+
+// configure the route and pass the parameters to the function
+"/profile/:user/:session": (user, session) =>
+    profileSession(user, session)
+
+// call winnetou navigate properly
+Winnetou.navigate("/profile/John/friends")
+       
+      </code></pre>
+</div>
+
+
+
+<%- include('../template/footer.ejs',{text:'Translations',url:'/docs/winnetou-translations'}) %>

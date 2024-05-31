@@ -1,0 +1,59 @@
+<span class="category">Addons</span>
+<h1>Winnetou Selectors</h1>
+
+<p>
+  As we said earlier, WinnetouJs loves vanillaJs, but we know how manipulating the DOM can give us a headache. That is why Winnetou brings with it the "select" method to help make DOM manipulations easier.
+
+  All child methods of select are documented with jsdoc, so the VSCode auto complete will work very well.
+
+  The basic syntax is <code>Winnetou.select(selector).method([arguments])</code>
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">select.js</span>
+  <pre><code class="onloadCode">
+        
+Winnetou.select(myDiv.ids.div)
+    .html("changed")
+    .css("backgroundColor", "#eee")
+    .toggleClass("blue");
+
+Winnetou.select(myDiv2.ids.div).hide();
+Winnetou.select(myDiv3.ids.div).hide();
+Winnetou.select(hiddenDiv_.ids.hiddenDiv).show();
+       
+      </code></pre>
+</div>
+
+<h2>Child Methods List</h2>
+
+<ul>
+  <li>html(htmlContentString) - sets inner HTML of constructo</li>
+  <li>remove() - removes a constructo from the DOM</li>
+  <li>getHtml() - get innerHtml from constructo</li>
+  <li>getText() - get only text inside a constructo</li>
+  <li>append(htmlContentString) - appends html</li>
+  <li>prepend(htmlContentString) - prepends html</li>
+  <li>css(property, value) - change css of a constructo. List of properties.</li>
+  <li>toggleClass(className) - toggles class</li>
+  <li>addClass(className) - adds class</li>
+  <li>removeClass(className) - removes class</li>
+  <li>hide() - hides a constructo</li>
+  <li>show() - shows a constructo</li>
+  <li>getWidth() - get width of a constructo</li>
+  <li>getHeight() - get height of a constructo</li>
+  <li>getLeft() - get left of a constructo</li>
+  <li>getTop() - get top of a constructo</li>
+  <li>getGlobalPosition() - get getGlobalPosition</li>
+  <li>getVal() - get value</li>
+  <li>setVal(newValue) - sets value</li>
+  <li>setAttr(attr, value) - sets attr</li>
+  <li>getAttr(attr) - get attr value</li>
+  <li>isChecked() - return true if is checked</li>
+  <li>getFile() - get file info</li>
+  <li>enable() - turn button clickable</li>
+  <li>disable() - turn button disabled</li>
+</ul>
+
+
+<%- include('../template/footer.ejs',{text:'Winnetou Router',url:'/docs/winnetou-router'}) %>
