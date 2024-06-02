@@ -16,5 +16,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/docs/:route", (req, res) => {
-  res.render(`template/template`, { path: req.params.route });
+  res.render(`template/template`, { type: "docs", path: req.params.route });
+});
+
+app.get("/docs", (req, res) => {
+  res.render(`template/template`, { type: "docs", path: "get-started" });
+});
+
+app.get("/api", (req, res) => {
+  res.render(`template/template`, { type: "api", path: "api" });
 });

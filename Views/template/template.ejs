@@ -16,12 +16,18 @@
 </head>
 
 <body>
-  <%- include('./navbar') %>
+  <%- include('./navbar', {type:type}) %>
+
+  <% if(type == 'docs'){ %>
   <%- include('./leftMenu') %>
+  <% } else { %>
+  <%- include('./leftMenuApi') %>
+  <% } %>
+
 
   <!-- main content -->
   <div class="content">
-    <%- include('../docs/'+path) %>
+    <%- include('../'+type+'/'+path) %>
   </div>
 
 

@@ -81,6 +81,17 @@ body {
       }
     }
 
+    ._version {
+      margin-left: 15px;
+      font-family: "Prompt";
+      font-weight: 300;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px 10px;
+      border: 1px solid #696969;
+      font-size: 13px;
+    }
+
     img {
       width: 70px;
       margin-right: 20px;

@@ -168,7 +168,11 @@ splash2({
   text: "You don't need to \"learn\" WinnetouJs, it's pure vanilla javascript. If you know js you know winnetou. Get started today.",
 }).create("#app");
 
-startHere({ onclick: "" }).create("#app");
+startHere({
+  onclick: Winnetou.fx(() => {
+    location.href = "/docs";
+  }),
+}).create("#app");
 // ------------------------
 
 footer({ heart: icons_heart().constructoString() }).create("#app");
