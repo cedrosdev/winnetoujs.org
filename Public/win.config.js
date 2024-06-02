@@ -6,9 +6,21 @@ export default {
   constructosOut: "./js/constructos",
   entry: "./js/app.js",
   out: "./release",
-  sass: "./sass",
+
   defaultLang: "en-us",
   publicPath: "/",
-  cssOut: "./release",
+
   icons: "./icons",
+
+  sass: [
+    {
+      entryFolder: "./sass",
+      outFolder: "./release",
+      firstFile: "_base.scss",
+    },
+    {
+      entryFolder: "./sass_docs",
+      outFolder: "./release/docs",
+    },
+  ],
 };
