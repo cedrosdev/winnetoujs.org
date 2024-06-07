@@ -7,6 +7,13 @@
       <span class="_version">
         v. 1.18.11
       </span>
+      <script>
+        (async () => {
+          let data = await fetch('/npm/version');
+          let version = await data.json();
+          document.querySelector('._version').innerHTML = version;
+        })();
+      </script>
       <span class="_version">
         <%
           var t = '';
@@ -23,6 +30,7 @@
   <div class="_right">
     <a class="" href="/docs">Docs</a>
     <a class="" href="/api">API</a>
+    <a class="" href="/docs/change-log">Change Log</a>
     <a class="" href="https://github.com/cedrosdev/winnetoujs" target="_blank">GitHub</a>
     <a class="" href="/docs/about">About</a>
     <a class="" href="/docs/get-in-touch">Get in touch</a>

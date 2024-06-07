@@ -1,4 +1,4 @@
-<span class="category">Plugins</span>
+<span class="category">Compiling to Production</span>
 <h1>Winnetou Bundle Releaser - WBR</h1>
 <p>
   The creation of the bundle is very easy and is done through the babel and webpack.
@@ -42,13 +42,23 @@ export default {
         a: "./release/translateApp",
         b: "./release/constructosApp",
     },
-    sass: "./sass",
+    sass: [
+      {
+        entryFolder: "./sass",
+        outFolder: "./release",
+      },
+    ],
     icons: "./icons",
     defaultLang: "en-us",
 };
        
       </code></pre>
 </div>
+
+<h2>Production Mode</h2>
+<p>
+  WBR will compile in dev mode allowing you debug your code in devtools with mapping. To reduce bundle size and obfuscate the output, run with --production flag: <code>node wbr --bundleRelease --production</code>.
+</p>
 
 <h2>Flags</h2>
 <p>
@@ -60,7 +70,11 @@ export default {
   </code></p>
 
 <p><code>
-    node wbr --bundleRelease : transpile and then compile to production
+    node wbr --bundleRelease : transpile and then compile in dev mode
+  </code></p>
+
+<p><code>
+    node wbr --bundleRelease --production : transpile and then compile to production
   </code></p>
 
 <p><code>
@@ -90,16 +104,14 @@ export default {
   <pre><code class="onloadCode">
         
 "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
-    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/runtime": "^7.12.1",
-    "babel-loader": "^8.1.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "@babel/core": "^7.24.5",
+    "@babel/eslint-parser": "^7.24.5",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.1",
+    "@babel/plugin-transform-optional-chaining": "^7.24.5",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/runtime": "^7.24.5",
+    "babel-loader": "^9.1.3",
     "webpack": "^5.2.0"
 }
             

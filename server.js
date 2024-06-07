@@ -26,3 +26,10 @@ app.get("/docs", (req, res) => {
 app.get("/api", (req, res) => {
   res.render(`template/template`, { type: "api", path: "api" });
 });
+
+app.get("/npm/version", async (req, res) => {
+  let d = await fetch("https://registry.npmjs.org/winnetoujs");
+  let data = await d.json();
+  let version = data["dist-tags"].latest;
+  res.json(version);
+});

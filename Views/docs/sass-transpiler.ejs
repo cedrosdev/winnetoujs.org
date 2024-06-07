@@ -7,13 +7,37 @@
 </p>
 
 <p>
-  You can separate your project into several sass (or css) files so that the tranpiler will bring them all together in a single bundle ./release/winnetouBundle.min.css.
+  You can separate your project into several sass (or css) files so that the transpiler will bring them all together in a single bundle ./release/winnetouBundle.min.css.
 
 </p>
 
 <h2>Setting up</h2>
 <p>
-  In <code>win.config.js</code> define the path of <code>.scss</code> files: <code> sass: "./sass",</code>. If you have css rules that needs to be parsed before all the rest of css content, use <code>sassInitFile</code> config to ensure that file be transpiled in top of css bundle. Use <code>cssOut: "./release",</code> to define the output folder of WBR css bundle.</p>
+  You must use win.config.js to configure the input folders for the .scss and .css files and the output folders for the transpiled version. The <code>sass</code> parameter is an array of objects that can contain the following properties: <code>entryFolder</code>, <code>outFolder</code> and <code>firstFile</code>. Use firstFile to determine a sass file to be transpiled before the rest of the folder.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">win.config.js</span>
+  <pre><code class="onloadCode">
+
+...
+sass: [
+  {
+      entryFolder: "./sass",
+      outFolder: "./release",
+      firstFile:'base.scss'
+  },
+  {
+      entryFolder: "./sass_mobile",
+      outFolder: "./release_mobile",
+      firstFile:'base.scss'
+  },
+],
+...
+
+       
+      </code></pre>
+</div>
 
 <h2>Transpiling</h2>
 <p>
