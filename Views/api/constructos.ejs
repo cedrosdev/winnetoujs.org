@@ -1,0 +1,318 @@
+<h1>Constructos</h1>
+<hr />
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>Create and use WinnetouJs web components.</p>
+
+<h2>&DoubleContourIntegral; Usage</h2>
+<p>
+  Create an html file inside constructos folder and define constructos inside
+  tag
+  <code>&lt;winnetou&gt;</code>
+  . After that import transpiled constructo in your javascript code.
+</p>
+
+<h2>&DoubleContourIntegral; Transpitation</h2>
+<p>
+  In order to transpile your WinnetouJs constructos html files, run command
+  <code>node wbr</code>
+  or
+  <code>node wbr --bundleRelease</code>
+  . Generated js files will have the same name as the original html files.
+</p>
+
+<h2>&DoubleContourIntegral; Example</h2>
+<div class="codeOutput">
+  <span class="code-file-name">
+    Converting html to WinnetouJs javascript constructo
+  </span>
+  <pre>
+<code class="onloadCode">
+[base.html]
+
+&lt;winnetou&gt;
+    &lt;div id=&quot;[[myFirstDiv]]&quot;&gt;{{text}}&lt;/div&gt;
+&lt;/winnetou&gt;
+-------------------
+
+[app.js]
+
+import { myFirstDiv } from "./constructos/base.js";
+myFirstDiv({ text: "Hello World!" }).create("#app");
+</code>
+</pre>
+</div>
+
+<h2>&DoubleContourIntegral; Ids</h2>
+<p>
+  Ids are the constructo identifier. They are defined using double brackets
+  <code>[[]]</code>
+  token in html code;
+</p>
+
+<h3>Type</h3>
+<p>String</p>
+
+<h3>Usage</h3>
+<p>
+  <code>&lt;div id=&quot;[[myFirstDiv]]&quot;&gt;{{ text }}&lt;/div&gt;</code>
+</p>
+
+<h2>&DoubleContourIntegral; Props</h2>
+<p>Props are the tokens that will be replaced with text or mutables.</p>
+
+<h3>Type</h3>
+<p>String or Object</p>
+
+<h3>Usage</h3>
+<p>
+  Props are set using double curly braces
+  <code>{{}}</code>
+  token in html code.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">props.js</span>
+  <pre>
+<code class="onloadCode">
+
+[propsExample.html]
+&lt;winnetou&gt;
+    &lt;input 
+        type=&quot;text&quot; 
+        class=&quot;inputText&quot; 
+        id=&quot;[[simpleInputText]]&quot;
+        placeholder=&quot;{{myPlaceholder}}&quot; 
+    /&gt;
+&lt;/winnetou&gt;
+
+[form.js]
+import { simpleInputText } from "./constructos/propsExample.js";
+simpleInputText({ 
+    myPlaceholder: "Enter your name here" 
+}).create("#myForm");
+</code>
+    </pre>
+</div>
+
+<h3>Optional prop</h3>
+<p>
+  Add
+  <code>?</code>
+  token in order to make prop optional.
+</p>
+
+<h3>Descritive prop</h3>
+<p>
+  In order to add a description to your prop, use
+  <code>%</code>
+  token.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">props.js</span>
+  <pre>
+  <code class="onloadCode">
+  
+  [propsExample.html]
+  &lt;winnetou&gt;
+      &lt;input 
+          type=&quot;text&quot; 
+          class=&quot;inputText {{?class:Optional class to be added}}&quot; 
+          id=&quot;[[simpleInputText]]&quot;
+          placeholder=&quot;{{myPlaceholder?}}&quot; 
+      /&gt;
+  &lt;/winnetou&gt;
+  
+  [form.js]
+  import { simpleInputText } from "./constructos/propsExample.js";
+  simpleInputText({ 
+      // this prop is optional
+      myPlaceholder: "Enter your name here",
+      // this prop is optional
+      class:"blueBackground"
+  }).create("#myForm");
+  </code>
+      </pre>
+</div>
+
+<h2>&DoubleContourIntegral; Options</h2>
+<p>Options are especial commands to change constructo behaviors.</p>
+<h3>Type</h3>
+<p>Object</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">myAwesomeApp.js</span>
+  <pre>
+  <code class="onloadCode">
+  import { myFirstDiv } from "./constructos/base.js";
+  myFirstDiv({ text: "Hello World!" }).create("#app",[options]);
+  </code>
+  </pre>
+</div>
+
+<h3>&bull; clear</h3>
+<p>Clear output element before add it.</p>
+<h4>Type</h4>
+<p>Boolean</p>
+
+<h3>&bull; reverse</h3>
+<p>Add constructo on top of output. Default is on end of it.</p>
+<h4>Type</h4>
+<p>Boolean</p>
+
+<h2>&DoubleContourIntegral; Create</h2>
+<p>Create method will add constructo in app DOM and return its ids.</p>
+
+<h3>Type</h3>
+<p>Method</p>
+
+<h3>Return Structure</h3>
+<p><code>keyId: [keyId]-win-[identifier]</code></p>
+
+<div class="codeOutput">
+  <span class="code-file-name">myAwesomeApp.js</span>
+  <pre>
+<code class="onloadCode">
+let myDiv = myTextConstructo({ text: "Hello World!" }).create("#app",{
+    reverse:true
+})
+console.log(myDiv.ids.myTextConstructo)
+
+// return 
+// myDiv-win-1
+</code>
+    </pre>
+</div>
+
+<h3>Inside ids</h3>
+<p>Your can create n ids inside your constructo.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">Inside ids</span>
+  <pre>
+  <code class="onloadCode">
+  [base.html]
+  
+  &lt;winnetou&gt;
+      &lt;div id=&quot;[[myFirstDiv]]&quot;&gt;
+      &lt;h1 id=&quot;[[title]]&quot;&gt;{{title_txt}}&lt;/h1&gt;
+      &lt;h2 id=&quot;[[sub_title]]&quot;&gt;{{sub_title_txt}}&lt;/h2&gt;
+      &lt;/div&gt;
+  &lt;/winnetou&gt;
+  -------------------
+  
+  [app.js]
+  
+  import { myFirstDiv } from "./constructos/base.js";
+  let myConstructo = myFirstDiv({ title_txt: "Hello", sub_title_txt:"World!" }).create("#app");
+
+  console.log(myConstructo)
+
+  // outputs:
+  ids = {
+    myFirstDiv:"myFirstDiv-win-1",
+    title:"title-win-1",
+    sub_title:"sub_title-win-1"
+  }
+
+
+  </code>
+  </pre>
+</div>
+
+<h3>Identifier</h3>
+<p>
+  The returned string id has this structure:
+  <code>[keyId]-win-[identifier]</code>
+  . The identifier will be a number if none is defined. In order to define it,
+  use identifier option when call a constructo.
+</p>
+
+<h4>Type</h4>
+<p>String</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">Inside ids</span>
+  <pre>
+    <code class="onloadCode">
+    [base.html]
+    
+    &lt;winnetou&gt;
+        &lt;div id=&quot;[[myFirstDiv]]&quot;&gt;
+        &lt;h1 id=&quot;[[title]]&quot;&gt;{{title_txt}}&lt;/h1&gt;
+        &lt;h2 id=&quot;[[sub_title]]&quot;&gt;{{sub_title_txt}}&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/winnetou&gt;
+    -------------------
+    
+    [app.js]
+    
+    import { myFirstDiv } from "./constructos/base.js";
+
+    let myConstructo = myFirstDiv({ 
+        title_txt: "Hello", 
+        sub_title_txt:"World!" 
+    },{
+        identifier:'ouroboros'
+    }).create("#app");
+  
+    console.log(myConstructo)
+  
+    // outputs:
+    ids = {
+      myFirstDiv:"myFirstDiv-win-ouroboros",
+      title:"title-win-ouroboros",
+      sub_title:"sub_title-win-ouroboros"
+    }
+  
+  
+    </code>
+    </pre>
+</div>
+
+<h2>&DoubleContourIntegral; constructoString</h2>
+<p>Return the string of constructo instead of adding it to DOM.</p>
+
+<h3>Type</h3>
+<p>Method</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">Constructo String</span>
+  <pre>
+      <code class="onloadCode">
+[base.html]
+
+&lt;winnetou&gt;
+    &lt;div id=&quot;[[myFirstDiv]]&quot;&gt;
+    &lt;h1 id=&quot;[[title]]&quot;&gt;{{title_txt}}&lt;/h1&gt;
+    &lt;h2 id=&quot;[[sub_title]]&quot;&gt;{{sub_title_txt}}&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/winnetou&gt;
+-------------------
+
+[app.js]
+
+import { myFirstDiv } from "./constructos/base.js";
+
+let myConstructo = myFirstDiv({ 
+    title_txt: "Hello", 
+    sub_title_txt:"World!" 
+},{
+    identifier:'ouroboros'
+}).constructoString()
+
+console.log(myConstructo)
+
+// outputs:  
+`&lt;div id=&quot;myFirstDiv-win-ouroboros&quot;&gt;
+&lt;h1 id=&quot;title-win-ouroboros&quot;&gt;Hello&lt;/h1&gt;
+&lt;h2 id=&quot;sub_title-win-ouroboros&quot;&gt;World!&lt;/h2&gt;
+&lt;/div&gt;`
+
+
+
+      </code>
+      </pre>
+</div>
+
+<%- include('../template/footer.ejs',{text:'Mutables',url:'/api/mutables'}) %>

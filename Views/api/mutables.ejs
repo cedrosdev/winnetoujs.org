@@ -1,0 +1,98 @@
+<h1>Mutables</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>
+  Stores data and updates constructos dynamically. Mutables can be handled with
+  winnetou.js node package.
+</p>
+
+<h2>&DoubleContourIntegral; setMutable</h2>
+<p>
+  Create or update a mutable and sets its value. It will be stored in client
+  browser by default unless you set notPersist as false.
+</p>
+
+<h3>Syntax</h3>
+<p>
+  <code>
+    setMutable(name:string, value:string,
+    notPersistent?:'notPersistent'|boolean)
+  </code>
+</p>
+
+<h4>Returns</h4>
+<p>Void</p>
+
+<h3 class="reset-margin">Example</h3>
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+<code class="onloadCode">
+import {Winnetou} from 'winnetoujs';
+...
+Winnetou.setMutable("name","John"); // it will persist by default
+Winnetou.setMutable("age","24",false);
+Winnetou.setMutable("gender","male","notPersistent");
+</code>
+  </pre>
+</div>
+
+<h2>&DoubleContourIntegral; getMutable</h2>
+<p>Retrieves a stored value of mutable.</p>
+
+<h3>Syntax</h3>
+<p><code>getMutable(mutable_name:string)</code></p>
+
+<h3>Returns</h3>
+<p>value:string</p>
+
+<h3 class="reset-margin">Example</h3>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+<code class="onloadCode">
+import {Winnetou} from 'winnetoujs';
+...
+let userName = Winnetou.getMutable("name");
+console.log(userName) // John
+</code>
+  </pre>
+</div>
+
+<h2>&DoubleContourIntegral; initMutable</h2>
+<p>Initializes a mutable in ephemeral mode and returns its name.</p>
+
+<h3>Syntax</h3>
+<p><code>initMutable(value:string)</code></p>
+
+<h3>Returns</h3>
+<p>mutable_name:string</p>
+
+<h3>State</h3>
+<p>Ephemeral (will be delete on page reload)</p>
+
+<h3>Example</h3>
+<p>
+  Setting mutable
+  <code>name</code>
+  with value
+  <code>John</code>
+  .
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+<code class="onloadCode">
+import {Winnetou} from 'winnetoujs';
+...
+let user2 = Winnetou.initMutable('Anna');
+</code>
+        </pre>
+</div>
+
+
+<%-
+include('../template/footer.ejs',{text:'App State Management',url:'/api/app-state-management'}) %>

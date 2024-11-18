@@ -27,6 +27,10 @@ app.get("/api", (req, res) => {
   res.render(`template/template`, { type: "api", path: "api" });
 });
 
+app.get("/api/:route", (req, res) => {
+  res.render("template/template", { type: "api", path: req.params.route });
+});
+
 app.get("/npm/version", async (req, res) => {
   let d = await fetch("https://registry.npmjs.org/winnetoujs");
   let data = await d.json();

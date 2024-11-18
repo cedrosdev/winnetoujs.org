@@ -24,9 +24,67 @@ h1 {
 
 h2 {
   margin-top: 60px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
   color: $fg-title;
+  width: 100%;
+  display: block;
+  border-bottom: 1px dashed #7e4179aa;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: -10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: $fg-title;
+  background-color: #7e417933;
+  display: inline-block;
+  padding: 2px 40px;
+  padding-left: 5px;
+  &.reset-margin {
+    margin-bottom: 20px;
+  }
+}
+
+h4 {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 500;
+  color: $fg-title;
+}
+
+.linkBox {
+  margin: 40px 0px;
+  padding: 30px;
+  border: 1px solid #d36408;
+  border-radius: 12px;
+
+  h2 {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 800;
+    color: $fg-title;
+    width: 100%;
+    display: block;
+    border: 0px;
+    &::after {
+      margin-left: 10px;
+      content: "🔗";
+    }
+  }
+  p {
+    a {
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1px dashed #d36408;
+      &:hover {
+        border-bottom: 1px solid #d36408;
+      }
+    }
+  }
 }
 
 .category {
@@ -147,15 +205,17 @@ body {
   overflow-y: auto;
   background-color: $bg;
   width: 400px;
+  top: 100px;
+  left: 0;
+  padding: 20px;
+  padding-bottom: 200px;
+
   @media (width<1525px) {
     width: 20vw;
   }
 
-  top: 100px;
-  left: 0;
-  padding: 20px;
-
   @media (width<880px) {
+    padding-bottom: 20px;
     display: none;
     width: 100vw;
   }
@@ -163,11 +223,15 @@ body {
   ._title,
   ._title2 {
     font-size: 25px;
+    line-height: 24px;
     font-weight: 100;
   }
 
   ._title2 {
     margin-top: 30px;
+    @media (width < 700px) {
+      margin-top: 50px;
+    }
   }
 
   &::-webkit-scrollbar {
@@ -190,13 +254,27 @@ body {
 
   a {
     display: block;
-    font-size: 18px;
+    font-size: 15px;
+    line-height: 14px;
     text-decoration: none;
     color: $fg1;
     transition: all 0.2s;
+    margin: 10px 0px;
+
+    @media (width < 700px) {
+      margin: 25px 0px;
+    }
 
     &:hover {
       color: $accent-color;
+    }
+  }
+
+  .bottom-menu {
+    margin-top: 150px;
+    border-top: 1px dashed #b327a744;
+    @media (width > 700px) {
+      display: none;
     }
   }
 }
@@ -233,6 +311,7 @@ p code {
   font-weight: 200;
   font-family: "Source Code Pro";
   font-size: 14px;
+  word-break: break-word;
 }
 
 p a {

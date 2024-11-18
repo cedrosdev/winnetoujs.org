@@ -21,6 +21,11 @@ const keys = {
   "=": "sign",
   setMutable: "method",
   initMutable: "method",
+  Winnetou: `let`,
+  // create: `sign`,
+  this: "method",
+  return: "sign2",
+  class: "let",
   "(": "sign",
   ")": "sign",
   "+": "sign",
@@ -43,7 +48,7 @@ const keys = {
 function highlightCode(code) {
   // Step 1: Replace strings with placeholders
   const strings = [];
-  const stringRegex = /(['"])(?:(?=(\\?))\2.)*?\1/g;
+  const stringRegex = /(['`"])(?:(?=(\\?))\2.)*?\1/g;
   code = code.replace(stringRegex, match => {
     strings.push(match);
     return `___STRING${strings.length - 1}___`;

@@ -1,0 +1,395 @@
+<span class="category">Mutables</span>
+<h1>Custom State Management System</h1>
+<p>
+  Mutables are not developed to use with lints, to solve this problem we create an approach that solves this.
+</p>
+
+<h2>Purpose</h2>
+<p>
+  Mutables will always impact DOM because setMutable tries to locate constructos that need to refresh. To avoid this mechanism, create your own state management system that can split resources between store simple data and update shadow DOM.
+</p>
+
+<h2>Code</h2>
+
+<p>
+  In below code we define an ephemeral memory that will store our data and we create get and set methods to access this data. To store persistent data we will use <a href='https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage'>localstorage</a>.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">stateManagementMainClass.js</span>
+  <pre>
+<code class="onloadCode">
+export class __StateManagement__ {
+  constructor() {
+    /**@private */
+    this.ephemeralMemory = [];
+  }
+
+  /**
+   * Print on console a report about state management actual stored data
+   * @param {boolean} ephemeral true: show ephemeral data, false: show localstorage data
+   */
+  PRINT_STATE(ephemeral) {
+    const printEphemeral = () => {
+      console.warn("EPHEMERAL STATE MANAGEMENT DATA REPORT");
+      console.log(this.ephemeralMemory);
+    };
+
+    const printLocalStorage = () => {
+      let total = localStorage.length;
+      let res = [];
+      for (let c = 0; c < total; c++) {
+        let key = localStorage.key(c);
+        if (key.includes("sm_")) {
+          res.push({
+            key,
+            value: localStorage.getItem(key),
+          });
+        }
+      }
+      //
+      console.warn("LOCALSTORAGE STATE MANAGEMENT REPORT");
+      console.table(res);
+    };
+
+    ephemeral ? printEphemeral() : printLocalStorage();
+  }
+
+  /**@private */
+  del(key) {
+    localStorage.removeItem("sm_" + key);
+  }
+
+  /**@private */
+  set(key, value) {
+    localStorage.setItem("sm_" + key, value);
+  }
+  /**
+   *
+   * @param {string} key
+   * @param {string|Number|event|Array|Boolean} value
+   */
+  set_ephemeral(key, value) {
+    this.ephemeralMemory[key] = value;
+  }
+  /**@private */
+  get(key) {
+    return localStorage.getItem("sm_" + key);
+  }
+  /**@private */
+  get_ephemeral(key) {
+    return this.ephemeralMemory[key];
+  }
+}
+
+</code>
+  </pre>
+</div>
+
+
+
+<p>This JavaScript class, <code>__StateManagement__</code>, is a simple state management system that offers two storage options: <strong>ephemeral (temporary)</strong> and <strong>persistent (localStorage)</strong>. Let’s go through the code to see how each part works.</p>
+
+<div class="section">
+  <h2>Class: <code>__StateManagement__</code></h2>
+  <p>The class has two main storage mechanisms:</p>
+  <ul>
+    <li><code>ephemeralMemory</code>: An in-memory array for temporary data.</li>
+    <li><code>localStorage</code>: Persistent storage using the browser’s <code>localStorage</code> API, which keeps data even after page reloads.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Constructor</h2>
+  <pre><code>constructor() {
+  /**@private */
+  this.ephemeralMemory = [];
+}</code></pre>
+  <p>This sets up an empty array <code>ephemeralMemory</code> to store temporary data. The <code>@private</code> comment indicates that it’s for internal use only.</p>
+</div>
+
+<div class="section">
+  <h2>Method: <code>PRINT_STATE</code></h2>
+  <pre><code>PRINT_STATE(ephemeral)</code></pre>
+  <p><strong>Purpose:</strong> Logs a report to the console, showing either the ephemeral data or the data in <code>localStorage</code>, depending on the <code>ephemeral</code> parameter.</p>
+  <p><strong>Parameter:</strong> <code>ephemeral</code> (boolean) - If <code>true</code>, it prints ephemeral data. If <code>false</code>, it logs <code>localStorage</code> data.</p>
+
+  <h3>Helper Functions within <code>PRINT_STATE</code></h3>
+  <ul>
+    <li><code>printEphemeral</code>: Logs the current ephemeral data stored in <code>this.ephemeralMemory</code>.</li>
+    <li><code>printLocalStorage</code>: Loops through <code>localStorage</code> items with keys that start with <code>"sm_"</code>, and displays them in a table.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Method: <code>del</code></h2>
+  <pre><code>del(key)</code></pre>
+  <p><strong>Purpose:</strong> Deletes an item from <code>localStorage</code> based on the given <code>key</code>.</p>
+  <p><strong>Parameter:</strong> <code>key</code> (string) - The identifier for the item to delete.</p>
+</div>
+
+<div class="section">
+  <h2>Method: <code>set</code></h2>
+  <pre><code>set(key, value)</code></pre>
+  <p><strong>Purpose:</strong> Stores an item in <code>localStorage</code>.</p>
+  <p><strong>Parameters:</strong></p>
+  <ul>
+    <li><code>key</code> (string) - The identifier for the item.</li>
+    <li><code>value</code> (string) - The value to store.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Method: <code>set_ephemeral</code></h2>
+  <pre><code>set_ephemeral(key, value)</code></pre>
+  <p><strong>Purpose:</strong> Adds or updates an item in <code>ephemeralMemory</code>.</p>
+  <p><strong>Parameters:</strong></p>
+  <ul>
+    <li><code>key</code> (string) - The identifier for the item.</li>
+    <li><code>value</code> (string|number|event|array|boolean) - The value to store.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Method: <code>get</code></h2>
+  <pre><code>get(key)</code></pre>
+  <p><strong>Purpose:</strong> Retrieves an item from <code>localStorage</code> using the given <code>key</code>.</p>
+  <p><strong>Parameter:</strong> <code>key</code> (string) - The identifier for the item.</p>
+</div>
+
+<div class="section">
+  <h2>Method: <code>get_ephemeral</code></h2>
+  <pre><code>get_ephemeral(key)</code></pre>
+  <p><strong>Purpose:</strong> Retrieves an item from <code>ephemeralMemory</code> using the specified <code>key</code>.</p>
+  <p><strong>Parameter:</strong> <code>key</code> (string) - The identifier for the item.</p>
+</div>
+
+<div class="section">
+
+  <p>This class provides a structured way to manage both temporary and persistent state data, making state retrieval and debugging easy with the <code>PRINT_STATE</code> method.</p>
+</div>
+
+
+
+
+<p>
+  Now we can create our own class that extends those methods. In MyManager, we can create any methods we need to control out application.
+</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">stateManagementChild.js</span>
+  <pre>
+<code class="onloadCode">
+import {Winnetou} from 'winnetoujs';
+import {__StateManagement__} from './stateManagementMainClass';
+class MyManager extends __StateManagement__{
+  constructor(){
+    super()
+  }
+  // put here your implementations
+
+  device = {
+    set:
+      /**
+       *
+       * @param {"android"|"pc"|"mobile"} value
+       * @returns
+       */
+      value => this.set_ephemeral("device", value),
+
+    get:
+      /**
+       *
+       * @returns {"android"|"pc"|"mobile"}
+       */
+      () => this.get_ephemeral("device"),
+
+    isAndroid: () => this.get_ephemeral("device") === "android",
+
+    isMobile: () => this.get_ephemeral("device") === "mobile",
+
+    isPc: () => this.get_ephemeral("device") === "pc",
+  };
+}
+
+
+
+</code>
+</pre>
+</div>
+
+
+
+<p>This code defines a class, <code>MyManager</code>, which extends <code>__StateManagement__</code> and provides additional functionality for managing device types within a state management system. Let’s break down each part of the code.</p>
+
+<div class="section">
+  <h2>Imports</h2>
+  <pre><code>import { Winnetou } from 'winnetoujs';
+import { __StateManagement__ } from './stateManagementMainClass';</code></pre>
+  <p>This imports two modules:</p>
+  <ul>
+    <li><code>Winnetou</code> from the <code>winnetoujs</code> package.</li>
+    <li><code>__StateManagement__</code> from a local module, which <code>MyManager</code> will extend.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Class: <code>MyManager</code></h2>
+  <pre><code>class MyManager extends __StateManagement__ {
+  constructor() {
+    super();
+  }
+}</code></pre>
+  <p>This class extends <code>__StateManagement__</code>, inheriting its state management methods (such as <code>set_ephemeral</code> and <code>get_ephemeral</code>). The <code>constructor</code> calls <code>super()</code> to ensure the base class is initialized.</p>
+</div>
+
+<div class="section">
+  <h2>Property: <code>device</code></h2>
+  <p>The <code>device</code> property in <code>MyManager</code> defines a set of methods for managing a "device" type within the ephemeral state. The possible values are <code>"android"</code>, <code>"pc"</code>, or <code>"mobile"</code>. Let’s go over each method.</p>
+
+  <h3><code>device.set</code></h3>
+  <pre><code>set:
+  /**
+   *
+   * @param {"android"|"pc"|"mobile"} value
+   * @returns
+   */
+  value => this.set_ephemeral("device", value),</code></pre>
+  <p><strong>Purpose:</strong> Sets the device type in the ephemeral memory.</p>
+  <p><strong>Parameter:</strong> <code>value</code> - Can be <code>"android"</code>, <code>"pc"</code>, or <code>"mobile"</code>.</p>
+  <p>This method calls <code>this.set_ephemeral("device", value)</code> to store the device type temporarily.</p>
+
+  <h3><code>device.get</code></h3>
+  <pre><code>get:
+  /**
+   *
+   * @returns {"android"|"pc"|"mobile"}
+   */
+  () => this.get_ephemeral("device"),</code></pre>
+  <p><strong>Purpose:</strong> Retrieves the current device type from ephemeral memory.</p>
+  <p><strong>Returns:</strong> The stored device type, which can be <code>"android"</code>, <code>"pc"</code>, or <code>"mobile"</code>.</p>
+
+  <h3><code>device.isAndroid</code></h3>
+  <pre><code>isAndroid: () => this.get_ephemeral("device") === "android",</code></pre>
+  <p><strong>Purpose:</strong> Checks if the stored device type is <code>"android"</code>.</p>
+  <p><strong>Returns:</strong> <code>true</code> if the device type is <code>"android"</code>, otherwise <code>false</code>.</p>
+
+  <h3><code>device.isMobile</code></h3>
+  <pre><code>isMobile: () => this.get_ephemeral("device") === "mobile",</code></pre>
+  <p><strong>Purpose:</strong> Checks if the stored device type is <code>"mobile"</code>.</p>
+  <p><strong>Returns:</strong> <code>true</code> if the device type is <code>"mobile"</code>, otherwise <code>false</code>.</p>
+
+  <h3><code>device.isPc</code></h3>
+  <pre><code>isPc: () => this.get_ephemeral("device") === "pc",</code></pre>
+  <p><strong>Purpose:</strong> Checks if the stored device type is <code>"pc"</code>.</p>
+  <p><strong>Returns:</strong> <code>true</code> if the device type is <code>"pc"</code>, otherwise <code>false</code>.</p>
+</div>
+
+<div class="section">
+  <p>The <code>MyManager</code> class extends <code>__StateManagement__</code> to manage device-specific states in ephemeral memory. The <code>device</code> property allows setting, getting, and checking device types, making it a simple and structured way to manage device information within the state management system.</p>
+</div>
+
+<h2>Updating Constructos Using Mutables</h2>
+
+
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+<code class="onloadCode">
+// somewhere in code ...
+
+MyManager.profile.stars.create()
+
+profileCard({
+  name:'John',
+  stars: {mutable:'stars'} 
+})
+
+MyManager.profile.stars.add()
+// it updates profileCard constructo automatically
+
+// inside MyManager class
+// ...
+
+profile = {
+  stars = {
+    create: () => !Winnetou.getMutable('stars') && 
+      Winnetou.setMutable('stars','0'),
+    add: () => {
+      let actualStars = parseInt(Winnetou.getMutable('stars')) || 0;
+      actualStars++;
+      Winnetou.setMutable('stars',actualStars);
+    },
+    remove: () => {
+      let actualStars = parseInt(Winnetou.getMutable('stars')) || 0;
+      actualStars--;
+      actualStars < 0 && (actualStars = 0);
+      Winnetou.setMutable('stars',actualStars);
+    }
+  }
+}
+
+</code>
+</pre>
+</div>
+
+
+
+<p>This code expands the <code>MyManager</code> class to manage a "stars" property within a user profile. The "stars" value can be created, added to, or removed, and it interacts with an external UI component in real-time. Here’s how it works.</p>
+
+<div class="section">
+  <h2>Code Usage Example</h2>
+  <pre><code>// somewhere in code ...
+
+MyManager.profile.stars.create();
+
+profileCard({
+  name: 'John',
+  stars: { mutable: 'stars' } 
+});
+
+MyManager.profile.stars.add(); 
+// it updates profileCard construct automatically
+</code></pre>
+  <p>This example shows how <code>MyManager.profile.stars</code> methods are used to create and update a "stars" counter associated with a profile. When the <code>add()</code> method is called, it automatically updates the <code>profileCard</code> UI to reflect the new stars count.</p>
+</div>
+
+<div class="section">
+  <h2>Property: <code>profile</code> in <code>MyManager</code></h2>
+  <p>The <code>profile</code> property defines a nested <code>stars</code> object, which contains methods to manage a user's "stars" count. The "stars" value is stored as a mutable state, accessible via the <code>Winnetou</code> library.</p>
+
+  <h3><code>stars.create</code></h3>
+  <pre><code>create: () => !Winnetou.getMutable('stars') && 
+  Winnetou.setMutable('stars', '0')</code></pre>
+  <p><strong>Purpose:</strong> Initializes the stars count if it doesn't exist yet. Checks if the "stars" mutable value exists; if not, it sets it to <code>'0'</code>.</p>
+
+  <h3><code>stars.add</code></h3>
+  <pre><code>add: () => {
+  let actualStars = parseInt(Winnetou.getMutable('stars')) || 0;
+  actualStars++;
+  Winnetou.setMutable('stars', actualStars);
+}</code></pre>
+  <p><strong>Purpose:</strong> Increments the "stars" count by 1.</p>
+  <p><strong>How it works:</strong> Retrieves the current "stars" value, parses it as an integer, increments by 1, and updates it in the mutable state. This change is reflected in any UI bound to <code>stars</code>, such as <code>profileCard</code>.</p>
+
+  <h3><code>stars.remove</code></h3>
+  <pre><code>remove: () => {
+  let actualStars = parseInt(Winnetou.getMutable('stars')) || 0;
+  actualStars--;
+  actualStars < 0 && (actualStars = 0);
+  Winnetou.setMutable('stars', actualStars);
+}</code></pre>
+  <p><strong>Purpose:</strong> Decrements the "stars" count by 1, but prevents it from going below zero.</p>
+  <p><strong>How it works:</strong> Gets the current "stars" count, decreases it by 1, and ensures it doesn’t drop below 0. Updates the mutable state, automatically reflecting the change in any UI element bound to "stars."</p>
+</div>
+
+<div class="section">
+
+  <p>This code provides a mechanism to manage a user's "stars" count within the <code>MyManager</code> class. The <code>stars</code> property inside <code>profile</code> allows for creating, incrementing, and decrementing the stars value. Using <code>Winnetou</code> to manage mutable state enables real-time updates, making it easy to sync the "stars" count with UI elements like <code>profileCard</code>.</p>
+</div>
+
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Winnetou Fx',url:'/docs/winnetou-fx'}) %>

@@ -1,0 +1,99 @@
+<h1>WinnetouJs Fx</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>
+  Fx is a WinnetouJs method that stores a js function and returns it name as string. It`s useful when you pass function to constructos props.
+</p>
+
+<h2>&DoubleContourIntegral; Syntax</h2>
+<p><code>fx(fn:function, ...args:string[])</code></p>
+
+<h2>&DoubleContourIntegral; Returns</h2>
+<p><code>String</code></p>
+
+
+
+<h2>&DoubleContourIntegral; Use Cases</h2>
+
+<h3 class="reset-margin">Without any arguments</h3>
+
+<div class="codeOutput">
+  <span class="code-file-name">WinnetouJs fx</span>
+  <pre>
+<code class="onloadCode">
+[components.html]
+&lt;winnetou&gt;
+    &lt;button id=&quot;[[button]]&quot; onclick=&quot;{{action}}&quot;&gt;{{text}}&lt;/button&gt;
+&lt;/winnetou&gt;
+
+[app.js]
+import {Winnetou} from 'winnetoujs';
+import {button} from './constructos/components';
+...
+button({
+    text:`Click me!`,
+    onclick: Winnetou.fx(() => alert(`You just clicked me!`))
+}).create(`#app`)
+</code>
+</pre>
+</div>
+
+<h3>With this argument</h3>
+<p>To use this, add quotes. In the example below, we use "this" to send self button reference as parameter to function.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">WinnetouJs fx</span>
+  <pre>
+  <code class="onloadCode">
+...
+button({
+    text:`Click me!`,
+    onclick: Winnetou.fx(el => (el.style.color = "white"), "this"),
+}).create(`#app`)
+  </code>
+  </pre>
+</div>
+
+<h3 class="reset-margin">With string argument</h3>
+<div class="codeOutput">
+  <span class="code-file-name">WinnetouJs fx</span>
+  <pre>
+    <code class="onloadCode">
+...
+button({
+    text:`Click me!`,
+    onclick: Winnetou.fx(txt => {
+        alert(txt);
+        }, "it works!"),
+}).create(`#app`)
+    </code>
+    </pre>
+</div>
+
+<h3 class="reset-margin">With multi arguments</h3>
+<div class="codeOutput">
+  <span class="code-file-name">WinnetouJs fx</span>
+  <pre>
+<code class="onloadCode">
+...
+button({
+    text:`Click me!`,
+    onclick: Winnetou.fx(
+        (el1, el2) => {
+        Winnetou.select(el1).hide();
+        Winnetou.select(el2).hide();
+        },
+        div1,
+        div3
+    ),
+},
+}).create(`#app`)
+    </code>
+    </pre>
+</div>
+
+
+
+<%-
+include('../template/footer.ejs',{text:'Router',url:'/api/router'}) %>

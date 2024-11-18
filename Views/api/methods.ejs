@@ -1,0 +1,265 @@
+<h1>WinnetouJs Methods</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>
+  Provides a lot of methods and functions to make easier to work with DOM manipulation and constructos state management. Winnetou.js provides a simple and chainable API for manipulating elements in the DOM.
+</p>
+
+<h2>&DoubleContourIntegral; Syntax</h2>
+<p><code>Winnetou.select(selectors:string).method([arguments])</code></p>
+
+<h3>Selectors</h3>
+<p>Selects elements in app. Use comma separated string.</p>
+
+<h4>Constructo id</h4>
+<p><code>Winnetou.select(myDiv.ids.div).hide()</code></p>
+
+<h4>Id</h4>
+<p><code>Winnetou.select(`#title`).hide()</code></p>
+
+<h4>Class</h4>
+<p><code>Winnetou.select(`.bright`).hide()</code></p>
+
+<h4>
+  Tag
+</h4>
+<p><code>Winnetou.select(`div`).hide()</code></p>
+
+<h4>Mixed</h4>
+<p><code>Winnetou.select(`.bright, p, #${myDiv.ids.div}`).hide()</code></p>
+
+<h2>&DoubleContourIntegral; Methods</h2>
+
+<h3>remove</h3>
+<p>Removes element from DOM.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.remove()</code>
+</p>
+
+<h3>html</h3>
+<p>Inserts html on element. Overwrite its content.</p>
+<h4>Syntax</h4>
+<p>
+<p>
+  <code>.html(content:string)</code>
+</p>
+
+<h3>getHtml</h3>
+<p>Get first element html content.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getHtml()</code>
+</p>
+
+<h3>getText</h3>
+<p>Get first element text content.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getText()</code>
+</p>
+
+<h3>append</h3>
+<p>Appends content to element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.append(content:string)</code>
+</p>
+
+<h3>prepend</h3>
+<p>Prepends content to element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.prepend(content:string)</code>
+</p>
+
+<h3>css</h3>
+<p>Changes css of element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.css(property:string, value:string | number)</code>
+</p>
+
+<h3>toggleClass</h3>
+<p>Toggles element class.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.toggleClass(class_name:string)</code>
+</p>
+
+<h3>addClass</h3>
+<p>Adds class to element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.addClass(class_name:string)</code>
+</p>
+
+<h3>removeClass</h3>
+<p>Removes class from element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.removeClass(class_name:string)</code>
+</p>
+
+<h3>hide</h3>
+<p>Hides element from DOM.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.hide()</code>
+</p>
+
+<h3>show</h3>
+<p>Shows element from DOM.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.show()</code>
+</p>
+
+
+<h3>getWidth</h3>
+<p>Gets width from first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getWidth()</code>
+</p>
+<h4>Returns</h4>
+<p><code>Number</code></p>
+
+
+<h3>getHeight</h3>
+<p>Gets height from first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getHeight()</code>
+</p>
+<h4>Returns</h4>
+<p><code>Number</code></p>
+
+
+<h3>getLeft</h3>
+<p>Gets left position of first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getLeft()</code>
+</p>
+<h4>Returns</h4>
+<p><code>Number</code></p>
+
+
+<h3>getTop</h3>
+<p>Gets top of first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getTop()</code>
+</p>
+<h4>Returns</h4>
+<p><code>Number</code></p>
+
+
+<h3>getGlobalPosition</h3>
+<p>Gets global position of element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getGlobalPosition()</code>
+</p>
+<h4>Returns</h4>
+<p><code>
+    {bottom: Number,height: Number, left: Number, right: Number, top: Number, width: Number,x: Number, y: Number}</code></p>
+
+<h3>getVal</h3>
+<p>Gets value of first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getVal()</code>
+</p>
+<h4>Returns</h4>
+<p><code>String</code></p>
+
+<h3>setVal</h3>
+<p>Set value of all elements.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.setVal(value: String)</code>
+</p>
+<h4>Behavior</h4>
+<p>Triggers onchange event</p>
+
+<h3>setAttr</h3>
+<p>Set value of attribute.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.setAttr(attr: String, value: String)</code>
+</p>
+
+<h3>getAttr</h3>
+<p>Gets attribute value of first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getAttr(attr: String)</code>
+</p>
+<h4>Returns</h4>
+<p><code>String</code></p>
+
+<h3>isChecked</h3>
+<p>Checks if input type checkbox is checked.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.isChecked()</code>
+</p>
+<h4>Returns</h4>
+<p><code>Boolean</code></p>
+
+<h3>getFile</h3>
+<p>Gets first element first file.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getFile()</code>
+</p>
+<h4>Returns</h4>
+<p><code>
+    {
+    lastModified: Number, lastModifiedDate: Date, name: String, size: Number, type: String
+    }</code></p>
+
+
+<h3>getFiles</h3>
+<p>Gets first element an array of files.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getFiles()</code>
+</p>
+<h4>Returns</h4>
+<p><code>
+    [{
+    lastModified: Number, lastModifiedDate: Date, name: String, size: Number, type: String
+    }]</code></p>
+
+
+<h3>getScrollTop</h3>
+<p>Gets first element scrolltop value.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.getScrollTop()</code>
+</p>
+<h4>Returns</h4>
+<p><code>Number</code></p>
+
+
+<h3>disable</h3>
+<p>Disables first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.disable()</code>
+</p>
+
+
+<h3>enable</h3>
+<p>Enables first element.</p>
+<h4>Syntax</h4>
+<p>
+  <code>.enable()</code>
+</p>
+
+<%-
+include('../template/footer.ejs',{text:'FX',url:'/api/winnetoujs-fx'}) %>

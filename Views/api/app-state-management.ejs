@@ -1,0 +1,70 @@
+<h1>State Management of WinnetouJs Application</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>Controls app updates using mutables.</p>
+
+<h2>&DoubleContourIntegral; Dynamic constructos</h2>
+<p>Use mutables to refresh constructos content.</p>
+
+<h3>Syntax</h3>
+<p><code>{mutable: name(string)}</code></p>
+
+<h3 class="reset-margin">Example</h3>
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+  <code class="onloadCode">
+  import {Winnetou} from 'winnetoujs';
+  import {profileCard} from './constructos/profile.js';
+  ...
+
+  Winnetou.setMutable('nameMut','John')
+
+  profileCard({
+    name:{mutable: 'nameMut'},
+    age:'24'
+  }).create('#app');
+
+  Winnetou.setMutable('nameMut','Anna');
+  // now profileCard was updated to show Anna in name prop
+  
+  </code>
+          </pre>
+</div>
+
+<p>Or use not persistent behavior.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+    <code class="onloadCode">
+    import {Winnetou} from 'winnetoujs';
+    import {profileCard} from './constructos/profile.js';
+    ...
+  
+    let nameMut = Winnetou.initMutable('John')
+  
+    profileCard({
+      name:{mutable: nameMut},
+      age:'24'
+    }).create('#app');
+  
+    Winnetou.setMutable(nameMut, 'Anna', false);
+    // now profileCard was updated to show Anna in name prop
+    
+    </code>
+            </pre>
+</div>
+
+<div class="linkBox">
+  <h2>Custom state management system</h2>
+  <p>
+    <a href="/docs/custom-state-management-system">Click here</a>
+    to go to documentation and see how to create a custom state management
+    complete system with WinnetouJs with a real example.
+  </p>
+</div>
+
+<%-
+include('../template/footer.ejs',{text:'Select Methods',url:'/api/select-methods'}) %>

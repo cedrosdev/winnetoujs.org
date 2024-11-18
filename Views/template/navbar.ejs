@@ -1,28 +1,18 @@
 <div class="navbar">
   <div class="_left">
     <a href="https://winnetoujs.org">
-      <img src="/images/winnetoujs-official-logo-2024-framework-javascript-web-development.png">
-      <span class="_title">
-        WinnetouJs</span>
-      <span class="_version">
-        v. 1.18.11
-      </span>
+      <img src="/images/winnetoujs-official-logo-2024-framework-javascript-web-development.png" />
+      <span class="_title">WinnetouJs</span>
+      <span class="_version">LTS</span>
       <script>
         (async () => {
-          let data = await fetch('/npm/version');
+          let data = await fetch("/npm/version");
           let version = await data.json();
-          document.querySelector('._version').innerHTML = version;
+          document.querySelector("._version").innerHTML = version;
         })();
       </script>
       <span class="_version">
-        <%
-          var t = '';
-          if(type == 'docs'){
-            t='Documentation';
-          } else {
-            t='API Reference';
-          }
-          %>
+        <% var t='' ; if(type=='docs' ){ t='Documentation' ; } else { t="API Reference" ; } %>
         <%= t %>
       </span>
     </a>
@@ -30,9 +20,13 @@
   <div class="_right">
     <a class="" href="/docs">Docs</a>
     <a class="" href="/api">API</a>
+
     <a class="" href="/docs/change-log">Change Log</a>
-    <a class="" href="https://github.com/cedrosdev/winnetoujs" target="_blank">GitHub</a>
-     <a class="" href="/docs/get-in-touch">Get in touch</a>
+    <a class="" href="/docs/get-in-touch">Get in touch</a>
+    <a class="" href="https://github.com/cedrosdev/winnetoujs" target="_blank">
+      GitHub
+    </a>
+    <a class="" href="/docs/contributing">Pull Requests Guideline</a>
   </div>
   <div class="_menu">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" id="_bars">
@@ -40,7 +34,7 @@
       <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
     </svg>
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="display: none;" id="_x">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" style="display: none" id="_x">
       <!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
       <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
     </svg>
@@ -49,18 +43,18 @@
 <div class="rainbow"></div>
 
 <script>
-  let menuVisible = false
-  document.querySelector('._menu').addEventListener('click', ev => {
+  let menuVisible = false;
+  document.querySelector("._menu").addEventListener("click", ev => {
     if (!menuVisible) {
-      menuVisible = true
-      document.querySelector('.leftMenu').style.display = 'block';
-      document.querySelector('#_bars').style.display = 'none'
-      document.querySelector('#_x').style.display = 'block'
+      menuVisible = true;
+      document.querySelector(".leftMenu").style.display = "block";
+      document.querySelector("#_bars").style.display = "none";
+      document.querySelector("#_x").style.display = "block";
     } else {
-      menuVisible = false
-      document.querySelector('.leftMenu').style.display = 'none';
-      document.querySelector('#_bars').style.display = 'block'
-      document.querySelector('#_x').style.display = 'none'
+      menuVisible = false;
+      document.querySelector(".leftMenu").style.display = "none";
+      document.querySelector("#_bars").style.display = "block";
+      document.querySelector("#_x").style.display = "none";
     }
-  })
+  });
 </script>

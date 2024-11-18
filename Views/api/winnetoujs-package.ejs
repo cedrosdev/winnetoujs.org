@@ -1,0 +1,77 @@
+<h1>WinnetouJs Node Package</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>
+  Serves a lot of methods to manipulate DOM and extends constructos
+  super-powers.
+</p>
+
+<h2>&DoubleContourIntegral; How to use</h2>
+<p>
+  WinnetouJs node package can be imported from node modules folder if you use
+  module type of script. If you use compiled WinnetouJs bundle, you can import
+  it using module name.
+</p>
+
+<h3>Precompiled approach</h3>
+<p>
+  You can save time using precompiled approach in WinnetouJs app development.
+  Modern browser have type module option when you add a script to your html. If
+  you use this approach you don't need to run
+  <code>node wbr --bundleRelease</code>
+  in order to see changes in your code.
+</p>
+
+<h4>Importing</h4>
+<p>You need to declare relative path with .js extension.</p>
+<p>
+  <code>
+    import { Winnetou } from "../node_modules/winnetoujs/src/winnetou.js";
+  </code>
+</p>
+<p>
+  Use
+  <code>type="module"</code>
+  when use it.
+</p>
+<p>
+  <code>
+    &lt;script type=&quot;module&quot;
+    src=&quot;./js/app.js&quot;&gt;&lt;/script&gt;
+  </code>
+</p>
+
+<h4>Transpiling constructos</h4>
+<p>
+  Just use
+  <code>node wbr</code>
+  command and constructos will be transpiled automatically when constructos html
+  files was changed.
+</p>
+
+<h3>Compiled approach</h3>
+<p>
+  Compiled approach will give you more compatibility with other npm packages and
+  javascript ecosystem.
+</p>
+
+<h4>Importing</h4>
+<p><code>import { Winnetou } from "winnetoujs";</code></p>
+<p>
+  <code>
+    &lt;script
+    src=&quot;./release/winnetouBundle.min.js&quot;&gt;&lt;/script&gt;
+  </code>
+</p>
+
+<h4>Transpiling constructos and compiling code</h4>
+<p>
+  Use
+  <code>node wbr --bundleRelease</code>
+  in order to transpile and compile code to bundle. Watch behavior will run wbr
+  when source code changes.
+</p>
+
+<%-
+include('../template/footer.ejs',{text:'Constructos',url:'/api/constructos'}) %>

@@ -1,0 +1,91 @@
+<h1>Router</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>
+  Creates routes.
+</p>
+
+<h2>&DoubleContourIntegral; Syntax</h2>
+<p><code>.createRoutes(routes: object, [options: object])</code></p>
+<p><code>.navigate(route: string)</code></p>
+<p><code>.pass(route: string)</code></p>
+
+<h3>createRoutes</h3>
+<p>Method that creates WinnetouJs routes system.</p>
+
+<div class="codeOutput">
+  <span class="code-file-name">router.js</span>
+  <pre>
+<code class="onloadCode">
+import {Winnetou} from 'winnetoujs';
+
+Winnetou.createRoutes({
+        "/": () => {
+            this.render()
+        },
+        "/profiles/:user": user => this.profile(user),
+        "menu": () => this.menu()
+    },
+    {
+        onBack: () => {
+            console.log(
+                 "This will be triggered when user press back button"
+            );
+        },
+        onGo: () => {
+            console.log(
+                "This will be triggered when user go to a route"
+            );
+        },
+    }
+);
+
+</code>
+            </pre>
+</div>
+
+<h3>navigate</h3>
+<p>Calls route and changes app url.</p>
+<div class="codeOutput">
+  <span class="code-file-name">router.js</span>
+  <pre>
+<code class="onloadCode">
+import {Winnetou} from 'winnetoujs';
+
+Winnetou.navigate(`/profile`);
+Winnetou.navigate(`/user/${user.login}`)
+
+  
+</code>
+</pre>
+</div>
+
+<h3>pass</h3>
+<p>Calls route without changing app url. To use pass, do not use slashes.</p>
+<div class="codeOutput">
+  <span class="code-file-name">router.js</span>
+  <pre>
+  <code class="onloadCode">
+  import {Winnetou} from 'winnetoujs';
+  
+  Winnetou.pass(`menu`);
+  Winnetou.pass(`settings/${data.id}`)
+  
+    
+  </code>
+  </pre>
+</div>
+
+<div class="linkBox">
+  <h2>Documentation</h2>
+  <p>
+    <a href="/docs/winnetou-router">Click here</a>
+    to go to documentation and learn more about WinnetouJs Router.
+  </p>
+</div>
+
+
+
+<%-
+include('../template/footer.ejs',{text:'Translations',url:'/api/translations'}) %>
