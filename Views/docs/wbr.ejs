@@ -4,15 +4,19 @@
   The creation of the bundle is very easy and is done through the babel and webpack.
 
   You just need to determine the entry and the out in win.config.js.</p>
+<p>You can set more than one app to be compiled at same time.</p>
 
 <div class="codeOutput">
   <span class="code-file-name">win.config.js</span>
-  <pre><code class="onloadCode">
-        
-entry: "./js/themesApp.js",
-out: "./release",
-       
-      </code></pre>
+  <pre>
+<code class="onloadCode">
+...
+apps:[{
+  entry: "./js/themesApp.js",
+  out: "./releaseThemesApp"
+}],
+...
+</code></pre>
 </div>
 
 <p>
@@ -22,77 +26,19 @@ out: "./release",
   </code>
   and the bundle release will be in "./release/winnetouBundle.min.js" with the source map and lazy modules too.</p>
 
-<p>
-  You can set a object of entries and outs to compile multiple sources at the same time. You can use any identifier to yours e/o values.
-</p>
-
-<div class="codeOutput">
-  <span class="code-file-name">win.config.js</span>
-  <pre><code class="onloadCode">
-        
-
-export default {
-    constructosPath: "./constructos",
-    constructosOut: "./js/constructos",
-    entry: {
-        a: "./js/translateApp.js",
-        b: "./js/constructosApp.js",
-    },
-    out: {
-        a: "./release/translateApp",
-        b: "./release/constructosApp",
-    },
-    sass: [
-      {
-        entryFolder: "./sass",
-        outFolder: "./release",
-      },
-    ],
-    icons: "./icons",
-    defaultLang: "en-us",
-};
-       
-      </code></pre>
-</div>
 
 <h2>Production Mode</h2>
 <p>
   WBR will compile in dev mode allowing you debug your code in devtools with mapping. To reduce bundle size and obfuscate the output, run with --production flag: <code>node wbr --bundleRelease --production</code>.
 </p>
 
-<h2>Flags</h2>
-<p>
-  You can use flags to change wbr behavior.
-<p>
-
-<p><code>
-    node wbr : just transpile constructos and sass
-  </code></p>
-
-<p><code>
-    node wbr --bundleRelease : transpile and then compile in dev mode
-  </code></p>
-
-<p><code>
-    node wbr --bundleRelease --production : transpile and then compile to production
-  </code></p>
-
-<p><code>
-    node wbr --no-watch : compile or transpile without watching
-  </code></p>
-
-<p><code>
-    node wbr --bundleRelease --standalone : just compile without transpile constructos
-  </code></p>
-
-<p><code>
-    --version
-  </code></p>
-
-<p><code>
-    --help
-  </code></p>
-
+<div class="linkBox">
+  <h2>WBR Arguments</h2>
+  <p>
+    <a href="/api/wbr-compiler">Click here</a>
+    to go to api and learn more about wbr.
+  </p>
+</div>
 
 <h2>In Deep Projects</h2>
 <p>

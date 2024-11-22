@@ -47,16 +47,20 @@
   <pre><code class="onloadCode">
       
 export default {
-    constructosPath: "./constructos",
-    constructosOut: "./js/constructos",
-    entry: "./js/app.js",
-    out: "./release",
+    apps:[
+      {
+        entry: "./js/app.js",
+        out: "./release"
+      }
+    ],
     sass: [
       {
         entryFolder: "./sass",
         outFolder: "./release",
       },
     ],
+    constructosPath: "./constructos",
+    constructosOut: "./js/constructos",
     icons: "./icons",
     publicPath: '/',
     defaultLang: "en-us",

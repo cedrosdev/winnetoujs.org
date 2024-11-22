@@ -1,0 +1,47 @@
+<h1>Mutations Constructos Removal Watch</h1>
+<hr />
+<p class="available-since">Available since: 1.19.0</p>
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>To call a function when a constructo was removed from DOM.</p>
+
+
+<h3>Syntax</h3>
+<p><code>Winnetou.mutations.start();</code></p>
+<p><code>Winnetou.mutations.onRemove(id: String, callback: Function);</code></p>
+<p><code>Winnetou.mutations.destroy()</code></p>
+
+<h3>start</h3>
+<p>Initiates watching DOM changes.</p>
+
+<h3>onRemove</h3>
+<p>Adds a listener to specific constructo that fires when it was removed from DOM.</p>
+
+<h3>destroy</h3>
+<p>Deletes mutations watching. Take when use destroy because it eliminates ALL mutations listeners on entire app.</p>
+
+
+<h3 class="reset-margin">Example</h3>
+<div class="codeOutput">
+  <span class="code-file-name">mutables.js</span>
+  <pre>
+  <code class="onloadCode">
+  import {Winnetou} from 'winnetoujs';
+  import {profileCard} from './constructos/profile.js';
+  ...
+
+  let profile = profileCard({
+    name:`John`
+  }).create(`#app`);
+
+  Winnetou.mutations.start();
+  Winnetou.mutations.onRemove(profile.ids.profileCard, () => {
+    console.log(`Profile was removed from dom.`)
+  });
+  Winnetou.mutations.destroy();
+  </code>
+          </pre>
+</div>
+
+<%-
+include('../template/footer.ejs',{text:'Mutations',url:'/api/mutations'}) %>

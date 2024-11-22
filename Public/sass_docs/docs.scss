@@ -302,6 +302,13 @@ body {
   }
 }
 
+.available-since {
+  padding: 3px 10px;
+  background-color: #333;
+  width: fit-content;
+  float: right;
+}
+
 p code {
   display: inline-block;
   background-color: $code-bg;

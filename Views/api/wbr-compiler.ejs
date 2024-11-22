@@ -1,0 +1,50 @@
+<h1>WBR Compiler</h1>
+<hr />
+
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>
+  Winnetou Bundle Releaser (WBR) is a nodejs app that transpiles and compiles WinnetouJs code. Run terminal at root of your project and run <code>node wbr</code>.
+</p>
+
+<h2>&DoubleContourIntegral; Syntax</h2>
+<p><code>node wbr [options]</code></p>
+
+<h2>&DoubleContourIntegral; Options</h2>
+<h3>none</h3>
+<p>
+  Just transpiles scss and constructos to vanilla javascript code in order to be possible to import web components in your code.
+</p>
+<p><code>node wbr</code></p>
+
+<h3>--bundleRelease (-b)</h3>
+<p>This command will pack all your code into single minified javascript file. If you use <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import'>asynchronous imports</a>, some other files will be generated too. It run in development mode by default, watches file changes and generates source maps. </p>
+<p><code>node wbr -b</code></p>
+
+<h3>--no-watch (-nw)</h3>
+<p>Disables watch behavior.</p>
+<p><code>node wbr -b -nw</code></p>
+
+<h3>--production (-p)</h3>
+<p>Compile bundle with production behavior. Disables watch, disables source maps and uses XWin.</p>
+<p><code>node wbr -b -p</code></p>
+
+<h3>--no-transpile (-nt)</h3>
+<p>Avoids transpile scss and constructos before compile code.</p>
+<p><code>node wbr -b -nt</code></p>
+
+<h3>--help (-h)</h3>
+<p>Shows help.</p>
+<p><code>node wbr -h</code></p>
+
+<h2>&DoubleContourIntegral; XWin</h2>
+<p>XWin is a compiling method of WBR that uses many technologies to make build process more fast and efficient. </p>
+<p>
+  To active this method, use option <code>--production</code> when run wbr.
+</p>
+
+
+
+
+
+<%-
+include('../template/footer.ejs',{text:'Back to winnetoujs.org',url:'/'}) %>
