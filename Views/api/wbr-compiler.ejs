@@ -12,13 +12,17 @@
 <h2>&DoubleContourIntegral; Options</h2>
 <h3>none</h3>
 <p>
-  Just transpiles scss and constructos to vanilla javascript code in order to be possible to import web components in your code.
+  Just transpiles scss and constructos to vanilla javascript code in order to be possible to import web components in your code. It is an alias to <code>node wbr -t</code> but it can't be used with <code>--no-watch</code> option.
 </p>
 <p><code>node wbr</code></p>
 
 <h3>--bundleRelease (-b)</h3>
 <p>This command will pack all your code into single minified javascript file. If you use <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import'>asynchronous imports</a>, some other files will be generated too. It run in development mode by default, watches file changes and generates source maps. </p>
 <p><code>node wbr -b</code></p>
+
+<h3>--transpile (-t)</h3>
+<p>Transpile scss and constructos before compile code. It can be used with --no-watch option.</p>
+<p><code>node wbr -t</code></p>
 
 <h3>--no-watch (-nw)</h3>
 <p>Disables watch behavior.</p>

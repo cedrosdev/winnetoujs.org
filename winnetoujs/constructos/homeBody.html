@@ -1,0 +1,90 @@
+<winnetou d="splash">
+  <div id="[[splash]]" class="splash"><span>{{text}}</span></div>
+</winnetou>
+
+<winnetou>
+  <div id="[[splash2]]" class="splash2"><span>{{text}}</span></div>
+</winnetou>
+
+<winnetou>
+  <div class="startHere" id="[[startHere]]">
+    <button onclick="{{onclick}}">Start Here</button>
+  </div>
+</winnetou>
+
+<winnetou>
+  <div id="[[codeDiv]]" class="codeDiv">
+    <div class="_title">{{title}}</div>
+
+    <div class="_content">
+      <div class="_result" id="[[result]]"></div>
+      <div class="codeOutput">
+        <pre><code>{{code}}</code></pre>
+      </div>
+    </div>
+  </div>
+</winnetou>
+
+<winnetou>
+  <div class="divOutputSnippet" id="[[divOutputSnippet]]"></div>
+</winnetou>
+
+<winnetou>
+  <div id="[[myDiv]]" style="{{myDivStyle}}">
+    {{?content%Set the text content of a div}}
+  </div>
+</winnetou>
+
+<winnetou>
+  <button onclick="{{onclick}}" class="buttonSnippet" id="[[buttonSnippet]]">
+    {{buttonText}}
+  </button>
+</winnetou>
+
+<winnetou>
+  <img id="[[myImg]]" style="{{myImgStyle}}" src="{{myImgSrc}}" />
+</winnetou>
+
+<winnetou d="extension card">
+  <div id="[[extensionCard]]" class="extensionCard">
+    <div class="_left">
+      <div class="glowBox">
+        <div class="_1"></div>
+        <div class="_2"></div>
+        <div class="_3"></div>
+      </div>
+      <div class="_img">
+        <img src="/images/extension.png" />
+      </div>
+    </div>
+    <div class="_right">
+      <div class="_title">Download the WinnetouJs official extension for Visual Studio Code</div>
+      <div class="_text">
+        Unlock all WinnetouJs power with the official extension for Visual Studio Code. It's free and open source. You will get:
+        <ul>
+          <li>Goto constructos: when press f12 over a constructo token, go to html source directly.</li>
+          <li>
+            Goto string: Use Ctrl + Shift + T to go to the string source of a constructo token.
+          </li>
+          <li>Create string: Use Ctrl + Shift + Y to create a new string entry over a string token in your code.</li>
+          <li>Bundler View</li>
+          <li>Bundles Size History View</li>
+          <li>Strings View</li>
+        </ul>
+        <div class="_install">
+          <button onclick="{{onclickInstall}}">Install</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</winnetou>
+
+<winnetou>
+  <div id="[[footer]]" class="footer">
+    <span>Copyright &copy; 2017-{{year}} Cedros Development</span>
+    <span>WinnetouJs and its plugins are shared under the MIT license.</span>
+    <span>Made with {{heart}} by Pamela Sedrez</span>
+  </div>
+</winnetou>

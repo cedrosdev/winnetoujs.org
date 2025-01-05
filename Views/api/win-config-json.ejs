@@ -1,0 +1,134 @@
+<h1>Configuration File</h1>
+<hr />
+<h2>&DoubleContourIntegral; Purpose</h2>
+<p>Define all file locations and settings of WinnetouJs applications.</p>
+<h2>&DoubleContourIntegral; Type</h2>
+<p>json file</p>
+<h3>File name</h3>
+<p>win.config.json</p>
+<h3>Location</h3>
+<p>Root folder project</p>
+<h2>&DoubleContourIntegral; Example</h2>
+<div class="codeOutput">
+  <span class="code-file-name">win.config.json</span>
+  <pre>
+<code class="onloadCode">
+{
+    "$schema": "./node_modules/winnetoujs/schemas/win.config.schema.json",
+    "constructosPath": "./constructos",
+    "constructosOut": "./src/constructos",
+    "publicPath": "/",
+    "apps": [
+        {
+            "entry": "./src/app.js",
+            "out": "../Public/home/js"
+        }
+    ],
+    "sass": [
+        {
+            "entryFolder": "./sass",
+            "outFolder": "../Public/home/css"
+        },
+        {
+            "entryFolder": "./sass_docs",
+            "outFolder": "../Public/docs/css"
+        }
+    ]
+}
+      
+</code>
+</pre>
+</div>
+
+
+
+<div class="property">
+  <h2>serverPort</h2>
+  <p class="description">Type: <code>number</code></p>
+  <p>Port for WinnetouJs Server VSCode Extension, default 3197.</p>
+</div>
+
+<div class="property">
+  <h2>constructosPath</h2>
+  <p class="description">Type: <code>string</code></p>
+  <p>The path of constructos html files. <strong>Required</strong>.</p>
+</div>
+
+<div class="property">
+  <h2>constructosOut</h2>
+  <p class="description">Type: <code>string</code></p>
+  <p>The path of constructos js file output. When you run <code>node wbr</code>, WinnetouJs get yours html constructos files and transpile it to js files with same names, in order to you can import constructos as classes in your js app. This property will define where this transpiled js files will be placed. <strong>Required</strong>.</p>
+</div>
+
+<div class="property">
+  <h2>apps</h2>
+  <p class="description">Type: <code>array</code></p>
+  <p>Array of apps to be compiled in Webpack (Available since 1.19.0). <strong>Required</strong>.</p>
+  <ul>
+    <li>
+      <h3>entry</h3>
+      <p class="description">Type: <code>string</code></p>
+      <p>Entry file for the application. <strong>Required</strong>.</p>
+    </li>
+    <li>
+      <h3>out</h3>
+      <p class="description">Type: <code>string</code></p>
+      <p>Output file for the application. <strong>Required</strong>.</p>
+    </li>
+  </ul>
+</div>
+
+<div class="property">
+  <h2>entry</h2>
+  <p class="description">Type: <code>string | object</code></p>
+  <p>Deprecated since 1.19.0, use apps instead.</p>
+</div>
+
+<div class="property">
+  <h2>out</h2>
+  <p class="description">Type: <code>string | object</code></p>
+  <p>Deprecated since 1.19.0, use apps instead.</p>
+</div>
+
+<div class="property">
+  <h2>sass</h2>
+  <p class="description">Type: <code>array</code></p>
+  <p>The path of SASS files to be compiled and watched.</p>
+  <ul>
+    <li>
+      <h3>entryFolder</h3>
+      <p class="description">Type: <code>string</code></p>
+      <p>Entry folder for SASS. <strong>Required</strong>.</p>
+    </li>
+    <li>
+      <h3>outFolder</h3>
+      <p class="description">Type: <code>string</code></p>
+      <p>Release folder for SASS. <strong>Required</strong>.</p>
+    </li>
+    <li>
+      <h3>firstFile</h3>
+      <p class="description">Type: <code>string</code></p>
+      <p>The file that needs to be at the top of the CSS bundle.</p>
+    </li>
+  </ul>
+</div>
+
+<div class="property">
+  <h2>defaultLang</h2>
+  <p class="description">Type: <code>string</code></p>
+  <p>Initial language, default is 'en-us'.</p>
+</div>
+
+<div class="property">
+  <h2>publicPath</h2>
+  <p class="description">Type: <code>string</code></p>
+  <p>Relative path address to the translations folder.</p>
+</div>
+
+<div class="property">
+  <h2>icons</h2>
+  <p class="description">Type: <code>string</code></p>
+  <p>The path of icons.</p>
+</div>
+
+<%- include('../template/footer.ejs',{text:'WinnetouJs Node Package',url:'/api/winnetoujs-package'}) %>

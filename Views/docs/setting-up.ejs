@@ -36,36 +36,38 @@
 <p>
   Well, before we see how to start a WinnetouJs project and write our first constructo, it is necessary to understand the configuration of the project and also the file structure.
 
-  The configuration file is called win.config.js and it is there that we define all the locations of the project files.
+  The configuration file is called win.config.json and it is there that we define all the locations and settings of the project files.
 </p>
 
 <p>This file needs to be in root of project, beside wbr.
 </p>
 
 <div class="codeOutput">
-  <span class="code-file-name">win.config.js</span>
+  <span class="code-file-name">win.config.json</span>
   <pre><code class="onloadCode">
-      
-export default {
-    apps:[
-      {
-        entry: "./js/app.js",
-        out: "./release"
-      }
-    ],
-    sass: [
-      {
-        entryFolder: "./sass",
-        outFolder: "./release",
-      },
-    ],
-    constructosPath: "./constructos",
-    constructosOut: "./js/constructos",
-    icons: "./icons",
-    publicPath: '/',
-    defaultLang: "en-us",
-};
-     
+    {
+      "$schema": "./node_modules/winnetoujs/schemas/win.config.schema.json",
+      "constructosPath": "./constructos",
+      "constructosOut": "./src/constructos",
+      "publicPath": "/",
+      "apps": [
+          {
+              "entry": "./src/app.js",
+              "out": "../Public/home/js"
+          }
+      ],
+      "sass": [
+          {
+              "entryFolder": "./sass",
+              "outFolder": "../Public/home/css"
+          },
+          {
+              "entryFolder": "./sass_docs",
+              "outFolder": "../Public/docs/css"
+          }
+      ]
+  }
+        
     </code></pre>
 </div>
 

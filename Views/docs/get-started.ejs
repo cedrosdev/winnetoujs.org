@@ -2,17 +2,18 @@
 <h1>Understanding Winnetoujs</h1>
 
 <p>
-  The Winnetou.js framework was developed to address the need for reusing HTML components within a web application, encapsulating syntax within classes that could be invoked at any time in the JavaScript code. However, it has since evolved to tackle more than just component reuse. Today, WinnetouJs facilitates the entire process of creating and expanding web applications.
-</p>
-
+  The Winnetou.js framework was initially designed to streamline the reuse of HTML components within web applications by encapsulating them in classes that could be invoked programmatically in JavaScript. Over time, it has evolved into a comprehensive solution for building and scaling modern web applications.</p>
 <p>
-  With WinnetouJs, you can implement a dynamic routing system within your application, manage color themes, create translated versions, use SVG icons in a lightweight and efficient manner, control the state of your application, and finally, generate a single obfuscated and minified bundle ready for production. You don't need to worry about configuring Webpack, as it comes pre-configured with WinnetouJs.
+
+  WinnetouJs now offers a wide range of capabilities, including the implementation of dynamic routing systems, theme management, multilingual support, lightweight and efficient SVG icon handling, and state management. Additionally, it facilitates the creation of a single, obfuscated, and minified production-ready bundle. With a pre-configured Webpack setup, WinnetouJs eliminates the complexity of manual configuration, providing developers with a seamless development experience.
 </p>
 
 <h2>How it works?</h2>
 
 <p>
-  WinnetouJs works based on VanillaJs, that is, it uses pure JavaScript to implement its functionalities. This way we don't mix html and javascript in the same file and we just transpile the web components that we call <b>constructos</b>. Winnetou provides an executable node file called <b>WBR</b> (Winnetou Bundle Releaser), which is responsible for interpreting the html constructos and making them available in the javascript code. Thanks to WBR's <code>watch</code> function, simply create or change a constructo and it will be available to use in your code. In other words, the only abstraction that WinnetouJs uses are constructos.
+  WinnetouJs is built on Vanilla JavaScript, leveraging its simplicity and robustness to implement all functionalities without additional dependencies. By design, it maintains a clear separation between HTML and JavaScript, avoiding their integration in a single file. Instead, it introduces "constructos," transpiled web components that encapsulate reusable HTML structures.
+
+  To facilitate this process, WinnetouJs provides the Winnetou Bundle Releaser (WBR), an executable Node.js utility. WBR is responsible for parsing and converting constructos into JavaScript modules, enabling seamless integration into your codebase. With WBR's real-time watch functionality, any changes or additions to constructos are instantly processed, making them immediately available for use. This streamlined approach ensures that constructos remain the sole abstraction layer within WinnetouJs, preserving the framework's lightweight and efficient nature.
 </p>
 
 <h2>Constructos</h2>

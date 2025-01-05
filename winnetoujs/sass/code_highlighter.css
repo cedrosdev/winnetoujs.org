@@ -1,0 +1,74 @@
+.codeOutput {
+  padding: 20px;
+  border-radius: 5px;
+  width: 700px;
+  max-width: 100%;
+  line-height: 25px;
+  font-size: 14px;
+  background-color: #2e343f !important;
+}
+
+.codeOutput pre {
+  margin: 0px;
+  color: #ccc;
+}
+
+.codeOutput pre code,
+.codeOutput pre span {
+  font-family: "Source Code Pro";
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media (width < 800px) {
+  .codeOutput {
+    width: 100%;
+  }
+
+  .codeOutput pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+.code-file-name {
+  display: inline-block;
+  padding: 2px 20px;
+  width: 100%;
+  color: #999;
+  background-color: #141f32;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.code-title {
+  font-weight: 100;
+  margin-bottom: -2px;
+}
+
+.let {
+  color: #5cadfd; /* Nord9 */
+  font-weight: bold;
+}
+.const {
+  color: #a0f753; /* Nord14 */
+}
+.sign {
+  color: #5fa7ff; /* Nord4 */
+}
+.sign2 {
+  color: #d3ff35; /* Nord4 */
+}
+.winnetou {
+  color: #ffc95d; /* Nord13 */
+}
+.method {
+  color: #27ff1c; /* Nord15 */
+}
+.quotes {
+  color: red;
+}
+.string {
+  color: #ff7f7f;
+}

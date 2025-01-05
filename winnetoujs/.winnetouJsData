@@ -1,0 +1,40 @@
+{
+  "../Public/release": {
+    "css": [
+      {
+        "date": "2025-01-03T17:25:25.486Z",
+        "sizeKB": "4.00"
+      }
+    ],
+    "docs": [
+      {
+        "date": "2025-01-03T17:25:25.486Z",
+        "sizeKB": "4.00"
+      }
+    ],
+    "winnetouBundle.min.css": [
+      {
+        "date": "2025-01-03T17:25:25.487Z",
+        "sizeKB": "10.15"
+      }
+    ],
+    "winnetouBundle.min.js": [
+      {
+        "date": "2025-01-03T17:25:25.487Z",
+        "sizeKB": "11.21"
+      }
+    ]
+  },
+  "../Public/home/js": {
+    "winnetouBundle.min.js": [
+      {
+        "date": "2025-01-03T17:33:42.373Z",
+        "sizeKB": "11.20"
+      },
+      {
+        "date": "2025-01-03T18:27:44.121Z",
+        "sizeKB": "23.88"
+      }
+    ]
+  }
+}

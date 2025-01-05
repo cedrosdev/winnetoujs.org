@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/winnetoujs/schemas/win.config.schema.json",
+  "constructosPath": "./constructos",
+  "constructosOut": "./src/constructos",
+  "publicPath": "/",
+  "apps": [
+    {
+      "entry": "./src/app.js",
+      "out": "../Public/home/js"
+    }
+  ],
+  "sass": [
+    {
+      "entryFolder": "./sass",
+      "outFolder": "../Public/home/css"
+    },
+    {
+      "entryFolder": "./sass_docs",
+      "outFolder": "../Public/docs/css"
+    }
+  ]
+}

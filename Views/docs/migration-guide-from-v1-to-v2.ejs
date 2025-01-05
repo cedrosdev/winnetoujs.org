@@ -1,0 +1,121 @@
+<span class="category">Version 2</span>
+<h1>Migration Guide</h1>
+<p>
+  This guide will help you to migrate your WinnetouJs application from version 1 to version 2.
+</p>
+<h2>Changes</h2>
+<p>
+  The main change is the configuration file. In version 1, the configuration file is a javascript file, now it is a JSON file.
+</p>
+<p>
+  The configuration file is now called <code>win.config.json</code> and it is located in the root of your project.
+</p>
+
+<div class="container">
+  <h1>Migration Guide: <code>win.config.js</code> to <code>win.config.json</code></h1>
+  <p>This guide will help you migrate your WinnetouJs configuration file from a JavaScript-based <code>win.config.js</code> to a JSON-based <code>win.config.json</code>. The new format enhances compatibility, simplifies validation, and improves integration with other tools.</p>
+
+  <h2>1. Understand the Differences</h2>
+  <ul>
+    <li><strong>JavaScript (<code>win.config.js</code>):</strong> Supports dynamic content through JavaScript logic (e.g., functions, imports).</li>
+    <li><strong>JSON (<code>win.config.json</code>):</strong> A static configuration format using key-value pairs. All dynamic functionality must be resolved before migration.</li>
+  </ul>
+
+  <h2>2. Prepare Your <code>win.config.js</code> for Conversion</h2>
+  <p>Review your current <code>win.config.js</code> to identify:</p>
+  <ul>
+    <li>JavaScript logic (e.g., computed values, imports).</li>
+    <li>Default values or comments that may not directly translate to JSON.</li>
+  </ul>
+  <div class="codeOutput">
+    <span class="code-file-name">base.scss</span>
+    <pre><code class="onloadCode">
+    
+    // Example win.config.js
+module.exports = {
+    serverPort: 3197,
+    constructosPath: './src/constructos',
+    constructosOut: './dist/constructos',
+    apps: [
+        { entry: './src/app1/index.js', out: './dist/app1' },
+        { entry: './src/app2/index.js', out: './dist/app2' }
+    ],
+    sass: [
+    { 
+        entryFolder: './src/styles', 
+        outFolder: './dist/styles', 
+        firstFile: './src/styles/_variables.scss' }
+    ],
+    defaultLang: 'en-us',
+    publicPath: './public',
+    icons: './src/assets/icons'
+};
+    </code></pre>
+  </div>
+
+  <h2>3. Convert to JSON Format</h2>
+  <p>Replace JavaScript-specific constructs with static values and create the <code>win.config.json</code> file:</p>
+  <div class="codeOutput">
+    <span class="code-file-name">base.scss</span>
+    <pre><code class="onloadCode">
+{
+    "$schema": "./node_modules/winnetoujs/schemas/win.config.schema.json",
+    "serverPort": 3197,
+    "constructosPath": "./src/constructos",
+    "constructosOut": "./dist/constructos",
+    "apps": [
+    { "entry": "./src/app1/index.js", "out": "./dist/app1" },
+    { "entry": "./src/app2/index.js", "out": "./dist/app2" }
+    ],
+    "sass": [
+    { 
+        "entryFolder": "./src/styles", 
+        "outFolder": "./dist/styles", 
+        "firstFile": "./src/styles/_variables.scss" }
+    ],
+    "defaultLang": "en-us",
+    "publicPath": "./public",
+    "icons": "./src/assets/icons"
+}
+    </code></pre>
+  </div>
+
+  <h2>4. Update Your Codebase</h2>
+  <p>Replace references to <code>win.config.js</code> with <code>win.config.json</code>:</p>
+  <div class="codeOutput">
+    <span class="code-file-name">base.scss</span>
+    <pre><code class="onloadCode">
+    // From:
+const config = require('./win.config.js');
+
+// To:
+const config = require('./win.config.json');
+    </code></pre>
+  </div>
+
+  <h2>5. Validate the Configuration</h2>
+  <ul>
+    <li>Use a JSON linter or schema validator to ensure the JSON is correctly formatted.</li>
+    <li>Run your project to verify that the configuration is correctly applied.</li>
+  </ul>
+
+  <h2>6. Test Thoroughly</h2>
+  <p>Validate all features dependent on configuration (e.g., apps, Sass paths, icons) to ensure no regressions are introduced.</p>
+
+  <h2>7. Deprecate <code>win.config.js</code></h2>
+  <p>After successful migration, remove the old <code>win.config.js</code> file to avoid confusion and accidental usage.</p>
+
+  <h2>8. Benefits of Using JSON</h2>
+  <ul>
+    <li><strong>Portability:</strong> Easier to share and integrate with external tools.</li>
+    <li><strong>Validation:</strong> Simplified schema validation using JSON Schema.</li>
+    <li><strong>Readability:</strong> Cleaner format for static configurations.</li>
+  </ul>
+
+  <p>By following this guide, you can seamlessly transition to the new <code>win.config.json</code> format and take advantage of its benefits.</p>
+</div>
+
+
+
+
+<%- include('../template/footer.ejs',{text:'Get Started',url:'/docs/get-started'}) %>

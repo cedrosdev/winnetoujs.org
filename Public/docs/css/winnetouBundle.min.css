@@ -1,0 +1,363 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  font-family: "Prompt";
+  color: #aaa;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 900;
+  color: #ccc;
+}
+
+h2 {
+  margin-top: 60px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #ccc;
+  width: 100%;
+  display: block;
+  border-bottom: 1px dashed rgba(126, 65, 121, 0.6666666667);
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: -10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #ccc;
+  background-color: rgba(126, 65, 121, 0.2);
+  display: inline-block;
+  padding: 2px 40px;
+  padding-left: 5px;
+}
+h3.reset-margin {
+  margin-bottom: 20px;
+}
+
+h4 {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.linkBox {
+  margin: 40px 0px;
+  padding: 30px;
+  border: 1px solid #d36408;
+  border-radius: 12px;
+}
+.linkBox h2 {
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #ccc;
+  width: 100%;
+  display: block;
+  border: 0px;
+}
+.linkBox h2::after {
+  margin-left: 10px;
+  content: "🔗";
+}
+.linkBox p a {
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px dashed #d36408;
+}
+.linkBox p a:hover {
+  border-bottom: 1px solid #d36408;
+}
+
+.category {
+  font-size: 16px;
+  font-weight: 100;
+  margin-bottom: -20px;
+  display: block;
+  color: #ccc;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #222;
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  height: 95px;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.navbar ._left {
+  font-family: "Montserrat Alternates";
+  font-weight: 900;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+.navbar ._left a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.navbar ._left ._title {
+  font-family: "Montserrat Alternates";
+  font-weight: 900;
+  color: #fff;
+  font-size: 30px;
+}
+@media (max-width: 799px) {
+  .navbar ._left ._title {
+    display: none;
+  }
+}
+.navbar ._left ._version {
+  margin-left: 15px;
+  font-family: "Prompt";
+  font-weight: 300;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px 10px;
+  border: 1px solid #696969;
+  font-size: 13px;
+}
+.navbar ._left img {
+  width: 70px;
+  margin-right: 20px;
+}
+@media (max-width: 879px) {
+  .navbar ._right {
+    display: none;
+  }
+}
+.navbar ._right a {
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 0;
+  margin-left: 10px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s;
+}
+.navbar ._right a:hover {
+  border-bottom: 1px solid #aaa;
+}
+.navbar ._menu {
+  display: none;
+}
+.navbar ._menu svg {
+  width: 25px;
+  fill: #aaa;
+}
+@media (max-width: 879px) {
+  .navbar ._menu {
+    display: block;
+  }
+}
+
+.rainbow {
+  width: 100%;
+  height: 2px;
+  content: "";
+  background-color: rgb(132, 84, 255);
+  background: linear-gradient(45deg, #8f4598, #6a2673, #cc94d2);
+  position: fixed;
+  left: 0;
+  top: 95px;
+}
+
+.leftMenu {
+  position: fixed;
+  height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background-color: #222;
+  width: 400px;
+  top: 100px;
+  left: 0;
+  padding: 20px;
+  padding-bottom: 200px;
+}
+@media (max-width: 1524px) {
+  .leftMenu {
+    width: 20vw;
+  }
+}
+@media (max-width: 879px) {
+  .leftMenu {
+    padding-bottom: 20px;
+    display: none;
+    width: 100vw;
+  }
+}
+.leftMenu ._title,
+.leftMenu ._title2 {
+  font-size: 25px;
+  line-height: 24px;
+  font-weight: 100;
+}
+.leftMenu ._title2 {
+  margin-top: 30px;
+}
+@media (max-width: 699px) {
+  .leftMenu ._title2 {
+    margin-top: 50px;
+  }
+}
+.leftMenu::-webkit-scrollbar {
+  width: 12px;
+}
+.leftMenu::-webkit-scrollbar-track {
+  background: #222;
+}
+.leftMenu::-webkit-scrollbar-thumb {
+  background-color: #222;
+  border-radius: 10px;
+  border: 1px dashed #666;
+}
+.leftMenu::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.leftMenu a {
+  display: block;
+  font-size: 15px;
+  line-height: 14px;
+  text-decoration: none;
+  color: #aaa;
+  transition: all 0.2s;
+  margin: 10px 0px;
+}
+@media (max-width: 699px) {
+  .leftMenu a {
+    margin: 25px 0px;
+  }
+}
+.leftMenu a:hover {
+  color: #ff49c6;
+}
+.leftMenu .bottom-menu {
+  margin-top: 150px;
+  border-top: 1px dashed rgba(179, 39, 167, 0.2666666667);
+}
+@media (min-width: 701px) {
+  .leftMenu .bottom-menu {
+    display: none;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1099px) {
+  body {
+    justify-content: flex-end;
+  }
+}
+
+.content {
+  margin-top: 100px;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+  background-color: #2a2a2a;
+}
+.content b {
+  font-style: normal;
+  font-weight: 500;
+  color: #ff49c6;
+}
+
+.available-since {
+  padding: 3px 10px;
+  background-color: #333;
+  width: fit-content;
+  float: right;
+}
+
+p code {
+  display: inline-block;
+  background-color: #0a0a0a;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 200;
+  font-family: "Source Code Pro";
+  font-size: 14px;
+  word-break: break-word;
+}
+
+p a {
+  text-decoration: none;
+  padding: 0 2px;
+  border-bottom: 1px dashed #666;
+  transition: all 0.5s;
+}
+p a:hover {
+  border-bottom: 1px dashed #fff;
+}
+
+.footer ._btn {
+  width: 100%;
+  height: 200px;
+  margin-top: 200px;
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer ._btn a {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: 2px solid #ff49c6;
+  text-decoration: none;
+  transition: all 0.6s;
+}
+.footer ._btn a:hover {
+  border: 2px solid #aaa;
+}
+.footer ._btn a svg {
+  width: 20px;
+  fill: #aaa;
+  margin-left: 20px;
+}
+.footer ._copy {
+  width: 100%;
+  margin-top: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terminal {
+  width: 100%;
+  background-color: #0a0a0a;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "Source Code Pro";
+  color: #ff49c6;
+  padding: 20px;
+  border-radius: 5px;
+}
+*{-webkit-overflow-scrolling:touch;}.winnetou_display_none{display:none !important;}
+/*# sourceMappingURL=winnetouBundle.min.css.map */

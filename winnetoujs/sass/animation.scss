@@ -1,0 +1,113 @@
+@use "./vars.scss" as *;
+
+@media (width < 800px) {
+  :root {
+    --base: 300px;
+  }
+}
+
+@media (width >= 800px) {
+  :root {
+    --base: 350px;
+  }
+}
+
+@media (width >= 900px) {
+  :root {
+    --base: 450px;
+  }
+}
+
+@media (width >= 1000px) {
+  :root {
+    --base: 550px;
+  }
+}
+
+@media (width >= 1350px) {
+  :root {
+    --base: 800px;
+  }
+}
+
+.logo_v2 {
+  text-align: center;
+  img {
+    @media (width<500px) {
+      width: 80%;
+    }
+  }
+}
+
+.logo {
+  width: $base;
+  height: calc(0.6 * $base);
+  display: flex;
+  overflow: hidden;
+  // border: 1px solid white;
+
+  padding-left: calc(0.25 * $base);
+  @media (width<800px) {
+    padding-left: calc(0.2 * $base);
+  }
+  padding-top: calc(0.07 * $base);
+  margin-right: calc(-0.13 * $base);
+}
+
+.pillar {
+  width: calc(0.2 * $base);
+  height: calc(0.6 * $base);
+  display: flex;
+  flex-direction: column;
+  transition: all 2s;
+
+  .box {
+    width: calc(0.2 * $base);
+    height: calc(0.2 * $base);
+  }
+}
+
+.pillar_1 {
+  .box_1 {
+    background-color: #8f4598;
+    margin-bottom: calc(-0.003 * $base);
+  }
+  .box_2 {
+    background-color: #8f4598;
+  }
+  .box_3 {
+    background-color: transparent;
+  }
+}
+
+.pillar_2 {
+  visibility: hidden;
+  .box_1 {
+    background-color: #6a2673;
+    margin-bottom: calc(-0.003 * $base);
+  }
+  .box_2 {
+    background-color: #6a2673;
+  }
+  .box_3 {
+    background-color: transparent;
+  }
+}
+
+.pillar_3 {
+  visibility: hidden;
+  .box_1 {
+    background-color: #cc94d2;
+  }
+  .box_2 {
+    background-color: transparent;
+  }
+  .box_3 {
+    background-color: transparent;
+  }
+}
+
+.animation {
+  transform: rotate(-45deg);
+  margin-right: calc(0.082 * $base);
+}
