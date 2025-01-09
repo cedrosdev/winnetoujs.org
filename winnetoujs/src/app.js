@@ -151,7 +151,7 @@ let code3 = codeDiv({
  * Changes background color
  * @param {string} class_ Set class name to toggle
  */
-const toggleBg = class_ => Winnetou.select(code3).toggleClass(class_);
+const toggleBg = (class_) => Winnetou.select(code3).toggleClass(class_);
 
 buttonSnippet({
   buttonText: "Change my color",

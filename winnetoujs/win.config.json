@@ -3,6 +3,7 @@
   "constructosPath": "./constructos",
   "constructosOut": "./src/constructos",
   "publicPath": "/",
+  "defaultLang": "en-us",
   "apps": [
     {
       "entry": "./src/app.js",
