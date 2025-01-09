@@ -28,12 +28,12 @@ Winnetou.createRoutes({
         "menu": () => this.menu()
     },
     {
-        onBack: () => {
+        onBack: (route) => {
             console.log(
                  "This will be triggered when user press back button"
             );
         },
-        onGo: () => {
+        onGo: (route) => {
             console.log(
                 "This will be triggered when user go to a route"
             );

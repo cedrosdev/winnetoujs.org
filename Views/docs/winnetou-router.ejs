@@ -11,7 +11,7 @@
 
 <p>
 
-  Routes receive functions that are called when the route is accessed by Winnetou.navigate().
+  Routes receive functions that are called when the route is accessed by Winnetou.navigate() and Winnetou.pass(), returning the route and the parameters passed to the function.
 </p>
 
 <div class="codeOutput">
@@ -27,14 +27,14 @@ Winnetou.createRoutes({
         "menu": () => this.menu()
     },
     {
-        onBack: () => {
+        onBack: (route) => {
             console.log(
-                "This will be triggered when user press back button"
+                "This will be triggered when user press back button", route
             );
         },
-        onGo: () => {
+        onGo: (route) => {
             console.log(
-                "This will be triggered when user go to a route"
+                "This will be triggered when user go to a route", route
             );
         },
     }
